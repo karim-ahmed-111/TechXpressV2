@@ -1,0 +1,214 @@
+@{
+    ViewData["Title"] = "Admin Dashboard";
+    var lowStock = ViewBag.LowStock as List<TechXpress.Data.Entities.Product>;
+    var recentOrders = ViewBag.RecentOrders as List<TechXpress.Data.Entities.Order>;
+    var recentReviews = ViewBag.RecentReviews as List<TechXpress.Data.Entities.Review>;
+}
+
+<style>
+    body.admin-dashboard-bg {
+        background: url('https://images.unsplash.com/photo-1461749280684-dccba630e2f6?auto=format&fit=crop&w=1500&q=80') no-repeat center center fixed;
+        background-size: cover;
+        min-height: 100vh;
+        position: relative;
+    }
+    .admin-dashboard-overlay {
+        position: fixed;
+        top: 0; left: 0; width: 100vw; height: 100vh;
+        background: rgba(245, 247, 251, 0.88);
+        z-index: 0;
+        pointer-events: none;
+    }
+    .admin-dashboard-content {
+        position: relative;
+        z-index: 1;
+    }
+    .dashboard-header {
+        background: linear-gradient(90deg, #007bff 0%, #00c6ff 100%);
+        color: #fff;
+        border-radius: 1rem;
+        box-shadow: 0 4px 24px rgba(0,0,0,0.08);
+        padding: 2.5rem 2rem 2rem 2rem;
+        margin-bottom: 2.5rem;
+        text-align: center;
+        position: relative;
+        overflow: hidden;
+    }
+    .dashboard-header .fa {
+        font-size: 3rem;
+        opacity: 0.15;
+        position: absolute;
+        right: 2rem;
+        top: 1.5rem;
+        pointer-events: none;
+    }
+    .dashboard-card {
+        border: none;
+        border-radius: 1rem;
+        box-shadow: 0 2px 16px rgba(0,0,0,0.07);
+        transition: transform 0.15s, box-shadow 0.15s;
+    }
+    .dashboard-card:hover {
+        transform: translateY(-4px) scale(1.03);
+        box-shadow: 0 8px 32px rgba(0,0,0,0.12);
+    }
+    .dashboard-section-title {
+        font-size: 1.25rem;
+        font-weight: 600;
+        margin-bottom: 1rem;
+        letter-spacing: 0.5px;
+    }
+    .dashboard-link-card {
+        display: flex;
+        align-items: center;
+        justify-content: center;
+        flex-direction: column;
+        border-radius: 1rem;
+        background: linear-gradient(135deg, #007bff 0%, #00c6ff 100%);
+        color: #fff;
+        font-size: 1.15rem;
+        font-weight: 500;
+        min-height: 140px;
+        box-shadow: 0 2px 16px rgba(0,0,0,0.07);
+        transition: background 0.2s, transform 0.15s, box-shadow 0.15s;
+        text-decoration: none;
+        margin-bottom: 1rem;
+    }
+    .dashboard-link-card:hover {
+        background: linear-gradient(135deg, #0056b3 0%, #007bff 100%);
+        color: #ffd700;
+        transform: translateY(-4px) scale(1.04);
+        box-shadow: 0 8px 32px rgba(0,0,0,0.12);
+        text-decoration: none;
+    }
+    .dashboard-link-card .fa {
+        font-size: 2.2rem;
+        margin-bottom: 0.5rem;
+    }
+    .dashboard-list-group .list-group-item {
+        border: none;
+        border-radius: 0.5rem;
+        margin-bottom: 0.5rem;
+        background: #f8f9fa;
+        transition: background 0.15s;
+    }
+    .dashboard-list-group .list-group-item:hover {
+        background: #e3f0ff;
+    }
+</style>
+
+<script>
+    document.body.classList.add('admin-dashboard-bg');
+</script>
+<div class="admin-dashboard-overlay"></div>
+<div class="admin-dashboard-content">
+    <div class="dashboard-header position-relative mb-5 p-3 p-md-5">
+        <h1 class="display-6 display-md-5 fw-bold mb-2">Admin Dashboard</h1>
+        <p class="lead mb-0">Welcome, Admin! Manage your store with ease and style.</p>
+        <i class="fa-solid fa-gauge-high"></i>
+    </div>
+    <div class="row g-4 mb-4">
+        <div class="col-12 col-md-4">
+            <div class="card dashboard-card h-100 p-2 p-md-4">
+                <div class="card-body">
+                    <div class="dashboard-section-title"><i class="fa fa-exclamation-triangle text-warning me-2"></i>Low Stock Alerts</div>
+                    @if (lowStock != null && lowStock.Any())
+                    {
+                        <ul class="dashboard-list-group list-group">
+                            @foreach (var product in lowStock)
+                            {
+                                <li class="list-group-item d-flex justify-content-between align-items-center">
+                                    <span><i class="fa fa-box text-secondary me-1"></i> @product.Name</span>
+                                    <span class="badge bg-danger">Stock: @product.Stock</span>
+                                </li>
+                            }
+                        </ul>
+                    }
+                    else
+                    {
+                        <span class="text-success">No low stock products.</span>
+                    }
+                </div>
+            </div>
+        </div>
+        <div class="col-12 col-md-4">
+            <div class="card dashboard-card h-100 p-2 p-md-4">
+                <div class="card-body">
+                    <div class="dashboard-section-title"><i class="fa fa-clock text-info me-2"></i>Recent Orders</div>
+                    @if (recentOrders != null && recentOrders.Any())
+                    {
+                        <ul class="dashboard-list-group list-group">
+                            @foreach (var order in recentOrders)
+                            {
+                                <li class="list-group-item">
+                                    <div class="d-flex justify-content-between align-items-center">
+                                        <span><i class="fa fa-receipt text-primary me-1"></i> <strong>Order #@order.Id</strong></span>
+                                        <span class="badge bg-success">$@order.TotalAmount</span>
+                                    </div>
+                                    <div class="small text-muted">@order.OrderDate.ToShortDateString() | <span class="badge bg-secondary">@order.Status</span></div>
+                                    <a href="/Admin/OrderDetails/@order.Id" class="btn btn-link btn-sm p-0 mt-1">Details <i class="fa fa-arrow-right"></i></a>
+                                </li>
+                            }
+                        </ul>
+                    }
+                    else
+                    {
+                        <span>No recent orders.</span>
+                    }
+                </div>
+            </div>
+        </div>
+        <div class="col-12 col-md-4">
+            <div class="card dashboard-card h-100 p-2 p-md-4">
+                <div class="card-body">
+                    <div class="dashboard-section-title"><i class="fa fa-star text-warning me-2"></i>Recent Reviews</div>
+                    @if (recentReviews != null && recentReviews.Any())
+                    {
+                        <ul class="dashboard-list-group list-group">
+                            @foreach (var review in recentReviews)
+                            {
+                                <li class="list-group-item">
+                                    <div class="d-flex align-items-center mb-1">
+                                        <span class="badge bg-warning text-dark me-2"><i class="fa fa-star"></i> @review.Rating/5</span>
+                                        <span class="fw-semibold">@review.Comment</span>
+                                    </div>
+                                    <div class="small text-muted">Product #@review.ProductId | @review.Date.ToShortDateString()</div>
+                                </li>
+                            }
+                        </ul>
+                    }
+                    else
+                    {
+                        <span>No recent reviews.</span>
+                    }
+                </div>
+            </div>
+        </div>
+    </div>
+    <div class="row g-4 mt-2">
+        <div class="col-12 col-md-6 col-lg-3">
+            <a href="/Admin/Products" class="dashboard-link-card p-3 p-md-4">
+                <i class="fa fa-boxes"></i>
+                Manage Products
+            </a>
+        </div>
+        <div class="col-12 col-md-6 col-lg-3">
+            <a href="/Admin/Categories" class="dashboard-link-card p-3 p-md-4">
+                <i class="fa fa-tags"></i>
+                Manage Categories
+            </a>
+        </div>
+        <div class="col-12 col-md-6 col-lg-3">
+            <a href="/Admin/Orders" class="dashboard-link-card p-3 p-md-4">
+                <i class="fa fa-receipt"></i>
+                Manage Orders
+            </a>
+        </div>
+        <div class="col-12 col-md-6 col-lg-3">
+            <a href="/Admin/Reviews" class="dashboard-link-card p-3 p-md-4">
+                <i class="fa fa-star"></i>
+                Manage Reviews
+            </a>
+        </div>
+    </div>
+</div> 

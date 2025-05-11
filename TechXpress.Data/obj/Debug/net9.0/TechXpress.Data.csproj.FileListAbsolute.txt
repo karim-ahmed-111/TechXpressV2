@@ -1,0 +1,14 @@
+D:\Complex\TechXpress.Data\bin\Debug\net9.0\TechXpress.Data.deps.json
+D:\Complex\TechXpress.Data\bin\Debug\net9.0\TechXpress.Data.dll
+D:\Complex\TechXpress.Data\bin\Debug\net9.0\TechXpress.Data.pdb
+D:\Complex\TechXpress.Data\obj\Debug\net9.0\TechXpress.Data.GeneratedMSBuildEditorConfig.editorconfig
+D:\Complex\TechXpress.Data\obj\Debug\net9.0\TechXpress.Data.AssemblyInfoInputs.cache
+D:\Complex\TechXpress.Data\obj\Debug\net9.0\TechXpress.Data.AssemblyInfo.cs
+D:\Complex\TechXpress.Data\obj\Debug\net9.0\TechXpress.Data.csproj.CoreCompileInputs.cache
+D:\Complex\TechXpress.Data\obj\Debug\net9.0\TechXpress.Data.dll
+D:\Complex\TechXpress.Data\obj\Debug\net9.0\refint\TechXpress.Data.dll
+D:\Complex\TechXpress.Data\obj\Debug\net9.0\TechXpress.Data.pdb
+D:\Complex\TechXpress.Data\obj\Debug\net9.0\ref\TechXpress.Data.dll
+D:\Complex\TechXpress.Data\bin\Debug\net9.0\TechXpress.Data.runtimeconfig.json
+D:\Complex\TechXpress.Data\obj\Debug\net9.0\TechXpress.Data.csproj.AssemblyReference.cache
+D:\Complex\TechXpress.Data\obj\Debug\net9.0\TechXpress.Data.genruntimeconfig.cache

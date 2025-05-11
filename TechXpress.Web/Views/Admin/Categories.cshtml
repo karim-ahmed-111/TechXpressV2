@@ -1,0 +1,84 @@
+@model IEnumerable<TechXpress.Data.Entities.Category>
+@{
+    ViewData["Title"] = "Manage Categories";
+}
+<style>
+    .admin-header {
+        background: linear-gradient(90deg, #007bff 0%, #00c6ff 100%);
+        color: #fff;
+        border-radius: 1rem;
+        box-shadow: 0 4px 24px rgba(0,0,0,0.08);
+        padding: 2rem 2rem 1.5rem 2rem;
+        margin-bottom: 2rem;
+        text-align: center;
+        position: relative;
+        overflow: hidden;
+    }
+    .admin-header .fa {
+        font-size: 2.5rem;
+        opacity: 0.12;
+        position: absolute;
+        right: 2rem;
+        top: 1.5rem;
+        pointer-events: none;
+    }
+    .admin-btn {
+        background: linear-gradient(90deg, #007bff 0%, #00c6ff 100%);
+        color: #fff;
+        border: none;
+        border-radius: 0.5rem;
+        font-weight: 500;
+        transition: background 0.2s, color 0.2s, box-shadow 0.2s;
+        box-shadow: 0 2px 8px rgba(0,0,0,0.07);
+    }
+    .admin-btn:hover {
+        background: linear-gradient(90deg, #0056b3 0%, #007bff 100%);
+        color: #ffd700;
+        box-shadow: 0 4px 16px rgba(0,0,0,0.12);
+    }
+    .table thead th {
+        background: #e3f0ff;
+        font-weight: 600;
+    }
+</style>
+<div class="admin-header position-relative mb-4">
+    <h2 class="fw-bold mb-1">Manage Categories</h2>
+    <p class="mb-0">View, edit, and manage your product categories.</p>
+    <i class="fa fa-tags"></i>
+</div>
+<a href="@Url.Action("CreateCategory")" class="btn admin-btn mb-3"><i class="fa fa-plus"></i> Add Category</a>
+<div class="table-responsive">
+    <table id="adminCategoriesTable" class="table table-striped table-bordered align-middle">
+        <thead>
+            <tr>
+                <th>Name</th>
+                <th>Description</th>
+                <th></th>
+            </tr>
+        </thead>
+        <tbody>
+        @foreach (var category in Model)
+        {
+            <tr>
+                <td><i class="fa fa-tag text-secondary me-1"></i> @category.Name</td>
+                <td>@category.Description</td>
+                <td>
+                    <a href="@Url.Action("EditCategory", new { id = category.Id })" class="btn btn-primary btn-sm me-1"><i class="fa fa-edit"></i> Edit</a>
+                    <form asp-action="DeleteCategory" method="post" style="display:inline">
+                        <input type="hidden" name="id" value="@category.Id" />
+                        <button type="submit" class="btn btn-danger btn-sm" onclick="return confirm('Delete this category?');"><i class="fa fa-trash"></i> Delete</button>
+                    </form>
+                </td>
+            </tr>
+        }
+        </tbody>
+    </table>
+</div>
+<script src="https://code.jquery.com/jquery-3.6.0.min.js"></script>
+<script src="https://cdn.datatables.net/1.13.4/js/jquery.dataTables.min.js"></script>
+<script src="https://cdn.datatables.net/1.13.4/js/dataTables.bootstrap5.min.js"></script>
+<script>
+    $(function () {
+        $('#adminCategoriesTable').DataTable();
+    });
+</script> 

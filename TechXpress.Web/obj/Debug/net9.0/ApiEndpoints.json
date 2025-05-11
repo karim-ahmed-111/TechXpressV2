@@ -1,0 +1,84 @@
+[
+  {
+    "ContainingType": "TechXpress.Web.Controllers.AdminApiController",
+    "Method": "GetAllOrders",
+    "RelativePath": "api/AdminApi/orders",
+    "HttpMethod": "GET",
+    "IsController": true,
+    "Order": 0,
+    "Parameters": [],
+    "ReturnTypes": []
+  },
+  {
+    "ContainingType": "TechXpress.Web.Controllers.CartApiController",
+    "Method": "GetCart",
+    "RelativePath": "api/CartApi",
+    "HttpMethod": "GET",
+    "IsController": true,
+    "Order": 0,
+    "Parameters": [],
+    "ReturnTypes": []
+  },
+  {
+    "ContainingType": "TechXpress.Web.Controllers.CategoriesApiController",
+    "Method": "GetAll",
+    "RelativePath": "api/CategoriesApi",
+    "HttpMethod": "GET",
+    "IsController": true,
+    "Order": 0,
+    "Parameters": [],
+    "ReturnTypes": []
+  },
+  {
+    "ContainingType": "TechXpress.Web.Controllers.OrdersApiController",
+    "Method": "GetOrders",
+    "RelativePath": "api/OrdersApi",
+    "HttpMethod": "GET",
+    "IsController": true,
+    "Order": 0,
+    "Parameters": [],
+    "ReturnTypes": []
+  },
+  {
+    "ContainingType": "TechXpress.Web.Controllers.ProductsApiController",
+    "Method": "GetAll",
+    "RelativePath": "api/ProductsApi",
+    "HttpMethod": "GET",
+    "IsController": true,
+    "Order": 0,
+    "Parameters": [],
+    "ReturnTypes": []
+  },
+  {
+    "ContainingType": "TechXpress.Web.Controllers.ProductsApiController",
+    "Method": "Get",
+    "RelativePath": "api/ProductsApi/{id}",
+    "HttpMethod": "GET",
+    "IsController": true,
+    "Order": 0,
+    "Parameters": [
+      {
+        "Name": "id",
+        "Type": "System.Int32",
+        "IsRequired": true
+      }
+    ],
+    "ReturnTypes": []
+  },
+  {
+    "ContainingType": "TechXpress.Web.Controllers.ReviewsApiController",
+    "Method": "GetReviewsForProduct",
+    "RelativePath": "api/ReviewsApi/product/{productId}",
+    "HttpMethod": "GET",
+    "IsController": true,
+    "Order": 0,
+    "Parameters": [
+      {
+        "Name": "productId",
+        "Type": "System.Int32",
+        "IsRequired": true
+      }
+    ],
+    "ReturnTypes": []
+  }
+]

@@ -1,0 +1,102 @@
+@model TechXpress.Data.Entities.Product
+@{
+    ViewData["Title"] = Model.Name;
+    var reviews = ViewBag.Reviews as IEnumerable<TechXpress.Data.Entities.Review>;
+    bool canReview = ViewBag.CanReview ?? false;
+    var avgRating = (reviews != null && reviews.Any()) ? reviews.Average(r => r.Rating) : 0;
+    var reviewCount = (reviews != null) ? reviews.Count() : 0;
+}
+<link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/css/bootstrap.min.css" />
+<h2 class="mb-3">@Model.Name</h2>
+<div class="row g-4">
+    <div class="col-md-7">
+        <div class="card mb-3">
+            <div class="card-body">
+                <h5 class="card-title">@Model.Description</h5>
+                <h4 class="card-text text-success">$@Model.Price</h4>
+                <p class="card-text">Stock: <span class="fw-bold">@Model.Stock</span></p>
+                <form method="post" action="/Cart/Add" class="row g-2 align-items-center">
+                    @Html.AntiForgeryToken()
+                    <input type="hidden" name="productId" value="@Model.Id" />
+                    <div class="col-auto">
+                        <input type="number" name="quantity" value="1" min="1" max="@Model.Stock" class="form-control" style="width: 90px;" />
+                    </div>
+                    <div class="col-auto">
+                        <button type="submit" class="btn btn-success">Add to Cart</button>
+                    </div>
+                </form>
+            </div>
+        </div>
+        <div class="card mt-4">
+            <div class="card-header bg-light d-flex align-items-center justify-content-between">
+                <span class="fw-bold">Reviews</span>
+                @if (reviewCount > 0)
+                {
+                    <span class="badge bg-primary">@avgRating.ToString("0.0")/5 from @reviewCount review@(reviewCount == 1 ? "" : "s")</span>
+                }
+            </div>
+            <div class="card-body">
+                @if (reviews != null && reviews.Any())
+                {
+                    <ul class="list-group mb-3">
+                        @foreach (var review in reviews)
+                        {
+                            <li class="list-group-item">
+                                <div class="d-flex justify-content-between align-items-center">
+                                    <span class="fw-bold">@review.Rating/5</span>
+                                    <small class="text-muted">@review.Date.ToShortDateString()</small>
+                                </div>
+                                <div>@review.Comment</div>
+                                <div class="text-muted small">by @(review.User?.FullName ?? review.UserId)</div>
+                            </li>
+                        }
+                    </ul>
+                }
+                else
+                {
+                    <p class="text-muted">No reviews yet.</p>
+                }
+                @if (canReview)
+                {
+                    <hr />
+                    <h6>Add Your Review</h6>
+                    <form asp-action="AddReview" method="post" class="mb-3">
+                        @Html.AntiForgeryToken()
+                        <input type="hidden" name="productId" value="@Model.Id" />
+                        <div class="mb-2">
+                            <label class="form-label">Rating</label>
+                            <select name="rating" class="form-select" style="max-width: 120px;">
+                                @for (int i = 1; i <= 5; i++)
+                                {
+                                    <option value="@i">@i</option>
+                                }
+                            </select>
+                        </div>
+                        <div class="mb-2">
+                            <label class="form-label">Comment</label>
+                            <textarea name="comment" class="form-control" required></textarea>
+                        </div>
+                        <button type="submit" class="btn btn-primary">Submit Review</button>
+                    </form>
+                }
+            </div>
+        </div>
+    </div>
+</div>
+@section Scripts {
+    <partial name="_ValidationScriptsPartial" />
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/toastr.js/latest/toastr.min.js"></script>
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/toastr.js/latest/toastr.min.css" />
+    <script>
+        $(function () {
+            @if (TempData["Success"] != null)
+            {
+                <text>toastr.success("@TempData["Success"]");</text>
+            }
+            @if (TempData["Error"] != null)
+            {
+                <text>toastr.error("@TempData["Error"]");</text>
+            }
+        });
+    </script>
+} 

@@ -1,0 +1,83 @@
+@model TechXpress.Data.Entities.Order
+@{
+    ViewData["Title"] = "Order Details";
+}
+<div class="container py-4">
+    <div class="row mb-4">
+        <div class="col-md-8">
+            <div class="card shadow-sm mb-3">
+                <div class="card-body">
+                    <h2 class="card-title mb-2">Order <span class="text-primary">#@Model.Id</span></h2>
+                    <div class="mb-2"><span class="fw-bold">Date:</span> @Model.OrderDate.ToShortDateString()</div>
+                    <div class="mb-2"><span class="fw-bold">Status:</span> <span class="badge bg-info text-dark">@Model.Status</span></div>
+                    <div class="mb-2"><span class="fw-bold">Total:</span> <span class="text-success fw-bold">$@Model.TotalAmount</span></div>
+                    <div class="mb-2"><span class="fw-bold">Shipping Address:</span> @Model.ShippingAddress</div>
+                    <div class="mb-2"><span class="fw-bold">Customer:</span> <i class="fa fa-user text-secondary me-1"></i> @Model.User?.FullName</div>
+                </div>
+            </div>
+            <div class="card shadow-sm">
+                <div class="card-body">
+                    <h4 class="card-title mb-3">Order Items</h4>
+                    <div class="table-responsive">
+                        <table class="table table-hover align-middle">
+                            <thead class="table-light">
+                                <tr>
+                                    <th>Product</th>
+                                    <th>Quantity</th>
+                                    <th>Unit Price</th>
+                                    <th>Total</th>
+                                </tr>
+                            </thead>
+                            <tbody>
+                            @foreach (var item in Model.OrderDetails)
+                            {
+                                <tr>
+                                    <td>
+                                        <a href="/Products/Details/@item.ProductId" class="fw-semibold text-decoration-none">
+                                            <i class="fa fa-box text-secondary me-1"></i> @item.Product?.Name
+                                        </a>
+                                    </td>
+                                    <td><span class="badge bg-primary">@item.Quantity</span></td>
+                                    <td>$@item.UnitPrice.ToString("0.00")</td>
+                                    <td class="fw-bold">$@((item.UnitPrice * item.Quantity).ToString("0.00"))</td>
+                                </tr>
+                            }
+                            </tbody>
+                        </table>
+                    </div>
+                </div>
+            </div>
+        </div>
+        <div class="col-md-4">
+            <div class="card shadow-sm mb-3">
+                <div class="card-body">
+                    <h4 class="card-title mb-3">Update Status</h4>
+                    <form asp-action="UpdateOrderStatus" method="post">
+                        <input type="hidden" name="id" value="@Model.Id" />
+                        <div class="mb-3">
+                            <select name="status" class="form-select form-select-lg">
+                                @foreach (var status in new[] { "Pending", "Paid", "Shipped", "Cancelled" })
+                                {
+                                    <option value="@status" selected="@(Model.Status == status ? "selected" : null)">@status</option>
+                                }
+                            </select>
+                        </div>
+                        <button type="submit" class="btn btn-gradient-primary w-100"><i class="fa fa-sync-alt me-1"></i> Update Status</button>
+                    </form>
+                </div>
+            </div>
+        </div>
+    </div>
+</div>
+<style>
+.btn-gradient-primary {
+    background: linear-gradient(90deg, #007bff 0%, #0056b3 100%);
+    color: #fff;
+    border: none;
+    transition: background 0.2s;
+}
+.btn-gradient-primary:hover {
+    background: linear-gradient(90deg, #0056b3 0%, #007bff 100%);
+    color: #ffd700;
+}
+</style> 

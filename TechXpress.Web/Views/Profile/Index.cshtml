@@ -1,0 +1,14 @@
+@model TechXpress.Data.Entities.ApplicationUser
+@{
+    ViewData["Title"] = "Profile";
+}
+<h2>Profile</h2>
+<div class="card" style="max-width: 500px;">
+    <div class="card-body">
+        <h5 class="card-title">@Model.FullName</h5>
+        <p class="card-text"><strong>Email:</strong> @Model.Email</p>
+        <p class="card-text"><strong>Address:</strong> @Model.Address</p>
+        <p class="card-text"><strong>Phone:</strong> @Model.PhoneNumber</p>
+        <a href="@Url.Action("Edit", "Profile")" class="btn btn-primary">Edit Profile</a>
+    </div>
+</div> 

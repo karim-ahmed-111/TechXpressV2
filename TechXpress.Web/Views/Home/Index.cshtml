@@ -1,0 +1,53 @@
+﻿@model TechXpress.Web.Models.HomeViewModel
+@{
+    ViewData["Title"] = "Home";
+}
+
+<div class="container py-4">
+    <div class="text-center mb-5">
+        <h1 class="display-4 fw-bold">Welcome to TechXpress!</h1>
+        <p class="lead">Your one-stop shop for the latest tech products</p>
+    </div>
+
+    <div class="mb-4">
+        <h3 class="mb-3">Categories</h3>
+        <div class="d-flex flex-wrap gap-2">
+            @foreach (var category in Model.Categories)
+            {
+                <a href="/Products?categoryId=@category.Id" class="badge rounded-pill bg-primary fs-6 px-4 py-2 text-decoration-none">@category.Name</a>
+            }
+        </div>
+    </div>
+
+    <div>
+        <h3 class="mb-3">Products</h3>
+        <div class="row row-cols-1 row-cols-md-3 g-4">
+            @foreach (var product in Model.Products)
+            {
+                <div class="col">
+                    <div class="card h-100 shadow-sm">
+                        <div class="card-img-top bg-light d-flex align-items-center justify-content-center" style="height:180px;">
+                            <i class="fa-solid fa-box-open fa-3x text-secondary"></i>
+                            <!-- Placeholder for product image -->
+                        </div>
+                        <div class="card-body d-flex flex-column">
+                            <h5 class="card-title">@product.Name</h5>
+                            <p class="card-text text-muted mb-1">@product.Category?.Name</p>
+                            <p class="card-text">@product.Description</p>
+                            <div class="mt-auto">
+                                <span class="fw-bold text-primary fs-5">$@product.Price.ToString("0.00")</span>
+                                <a href="/Products/Details/@product.Id" class="btn btn-outline-primary btn-sm ms-2">View</a>
+                                <form method="post" action="/Cart/Add" class="d-inline">
+                                    @Html.AntiForgeryToken()
+                                    <input type="hidden" name="productId" value="@product.Id" />
+                                    <input type="hidden" name="quantity" value="1" />
+                                    <button type="submit" class="btn btn-success btn-sm ms-1"><i class="fa fa-cart-plus"></i> Add to Cart</button>
+                                </form>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            }
+        </div>
+    </div>
+</div>

@@ -1,0 +1,35 @@
+@model TechXpress.Data.Entities.Cart
+@{
+    ViewData["Title"] = "Checkout";
+}
+<h2>Checkout</h2>
+<form asp-action="Checkout" method="post" class="mb-4" style="max-width: 400px;">
+    <div class="mb-3">
+        <label for="shippingAddress" class="form-label">Shipping Address</label>
+        <input type="text" name="shippingAddress" id="shippingAddress" class="form-control" required />
+    </div>
+    <button type="submit" class="btn btn-success">Proceed to Payment</button>
+</form>
+<h4>Order Summary</h4>
+<table class="table table-bordered">
+    <thead>
+        <tr>
+            <th>Product</th>
+            <th>Quantity</th>
+            <th>Unit Price</th>
+            <th>Total</th>
+        </tr>
+    </thead>
+    <tbody>
+    @foreach (var item in Model.CartItems)
+    {
+        <tr>
+            <td>@item.Product?.Name</td>
+            <td>@item.Quantity</td>
+            <td>$@item.UnitPrice</td>
+            <td>$@(item.UnitPrice * item.Quantity)</td>
+        </tr>
+    }
+    </tbody>
+</table>
+<h4 class="text-end">Grand Total: $@Model.CartItems.Sum(i => i.UnitPrice * i.Quantity)</h4> 
