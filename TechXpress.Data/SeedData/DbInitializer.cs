@@ -56,9 +56,24 @@ namespace TechXpress.Data.SeedData
                 var cameras = context.Categories.FirstOrDefault(c => c.Name == "Cameras");
                 var theProducts = new List<Product>
                 {
-                    new Product { Name = "Dell XPS 13", Description = "13-inch laptop", Price = 999, Stock = 10,ImageUrl="", CategoryId = laptops.Id},
-                    new Product { Name = "iPhone 15", Description = "Latest Apple iPhone", Price = 1199, Stock = 15,ImageUrl="", CategoryId = mobiles.Id},
-                    new Product { Name = "Canon EOS R5", Description = "Mirrorless camera", Price = 3899, Stock = 5,ImageUrl="", CategoryId = cameras.Id}
+                    // Laptops
+                    new Product { Name = "Dell XPS 13", Description = "13-inch laptop with InfinityEdge display.", Price = 999, Stock = 10, ImageUrl = "https://images.unsplash.com/photo-1517336714731-489689fd1ca8?auto=format&fit=crop&w=800&q=80", CategoryId = laptops.Id },
+                    new Product { Name = "MacBook Pro 16", Description = "Apple M1 Pro chip, 16-inch Retina display.", Price = 2499, Stock = 8, ImageUrl = "https://images.unsplash.com/photo-1519389950473-47ba0277781c?auto=format&fit=crop&w=800&q=80", CategoryId = laptops.Id },
+                    new Product { Name = "HP Spectre x360", Description = "Convertible 2-in-1 laptop.", Price = 1299, Stock = 12, ImageUrl = "https://images.unsplash.com/photo-1519125323398-675f0ddb6308?auto=format&fit=crop&w=800&q=80", CategoryId = laptops.Id },
+                    new Product { Name = "Lenovo ThinkPad X1 Carbon", Description = "Ultra-light business laptop.", Price = 1399, Stock = 7, ImageUrl = "https://images.unsplash.com/photo-1465101046530-73398c7f28ca?auto=format&fit=crop&w=800&q=80", CategoryId = laptops.Id },
+                    new Product { Name = "Asus ROG Zephyrus G14", Description = "Gaming laptop with Ryzen 9.", Price = 1599, Stock = 5, ImageUrl = "https://images.unsplash.com/photo-1511707171634-5f897ff02aa9?auto=format&fit=crop&w=800&q=80", CategoryId = laptops.Id },
+                    // Mobiles
+                    new Product { Name = "iPhone 15 Pro", Description = "Latest Apple iPhone with A17 chip.", Price = 1199, Stock = 15, ImageUrl = "https://images.unsplash.com/photo-1512499617640-c2f999098c01?auto=format&fit=crop&w=800&q=80", CategoryId = mobiles.Id },
+                    new Product { Name = "Samsung Galaxy S23 Ultra", Description = "Flagship Android phone.", Price = 1099, Stock = 18, ImageUrl = "https://images.unsplash.com/photo-1510557880182-3d4d3c1b3edc?auto=format&fit=crop&w=800&q=80", CategoryId = mobiles.Id },
+                    new Product { Name = "Google Pixel 8 Pro", Description = "Pure Android experience.", Price = 999, Stock = 10, ImageUrl = "https://images.unsplash.com/photo-1519125323398-675f0ddb6308?auto=format&fit=crop&w=800&q=80", CategoryId = mobiles.Id },
+                    new Product { Name = "OnePlus 11", Description = "Fast and smooth performance.", Price = 799, Stock = 14, ImageUrl = "https://images.unsplash.com/photo-1465101178521-c1a9136a3b99?auto=format&fit=crop&w=800&q=80", CategoryId = mobiles.Id },
+                    new Product { Name = "Xiaomi Mi 13", Description = "Affordable flagship.", Price = 699, Stock = 20, ImageUrl = "https://images.unsplash.com/photo-1517336714731-489689fd1ca8?auto=format&fit=crop&w=800&q=80", CategoryId = mobiles.Id },
+                    // Cameras
+                    new Product { Name = "Canon EOS R5", Description = "Mirrorless camera, 45MP, 8K video.", Price = 3899, Stock = 5, ImageUrl = "https://images.unsplash.com/photo-1465101046530-73398c7f28ca?auto=format&fit=crop&w=800&q=80", CategoryId = cameras.Id },
+                    new Product { Name = "Sony Alpha a7 IV", Description = "Full-frame mirrorless camera.", Price = 2499, Stock = 6, ImageUrl = "https://images.unsplash.com/photo-1511707171634-5f897ff02aa9?auto=format&fit=crop&w=800&q=80", CategoryId = cameras.Id },
+                    new Product { Name = "Nikon Z6 II", Description = "Versatile mirrorless camera.", Price = 1999, Stock = 7, ImageUrl = "https://images.unsplash.com/photo-1512499617640-c2f999098c01?auto=format&fit=crop&w=800&q=80", CategoryId = cameras.Id },
+                    new Product { Name = "Fujifilm X-T5", Description = "APS-C mirrorless camera.", Price = 1699, Stock = 9, ImageUrl = "https://images.unsplash.com/photo-1510557880182-3d4d3c1b3edc?auto=format&fit=crop&w=800&q=80", CategoryId = cameras.Id },
+                    new Product { Name = "Panasonic Lumix S5", Description = "Hybrid photo/video camera.", Price = 1799, Stock = 8, ImageUrl = "https://images.unsplash.com/photo-1519389950473-47ba0277781c?auto=format&fit=crop&w=800&q=80", CategoryId = cameras.Id }
                 };
                 context.Products.AddRange(theProducts);
                 await context.SaveChangesAsync();

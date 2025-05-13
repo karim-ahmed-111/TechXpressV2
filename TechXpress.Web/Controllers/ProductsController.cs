@@ -12,19 +12,36 @@ namespace TechXpress.Web.Controllers
         private readonly IReviewService _reviewService;
         private readonly IOrderService _orderService;
         private readonly UserManager<ApplicationUser> _userManager;
-        public ProductsController(IProductService productService, IReviewService reviewService, IOrderService orderService, UserManager<ApplicationUser> userManager)
+        private readonly ICategoryService _categoryService;
+        public ProductsController(IProductService productService, IReviewService reviewService, IOrderService orderService, UserManager<ApplicationUser> userManager, ICategoryService categoryService)
         {
             _productService = productService;
             _reviewService = reviewService;
             _orderService = orderService;
             _userManager = userManager;
+            _categoryService = categoryService;
         }
 
-        public async Task<IActionResult> Index(int categoryId)
+        public async Task<IActionResult> Index(int? categoryId, decimal? minPrice, decimal? maxPrice)
         {
             var products = await _productService.GetAllProductsAsync();
-            var filteredProducts = products.Where(p => p.CategoryId == categoryId).ToList();
-            return View(filteredProducts);
+            if (categoryId.HasValue && categoryId.Value > 0)
+            {
+                products = products.Where(p => p.CategoryId == categoryId.Value).ToList();
+            }
+            if (minPrice.HasValue)
+            {
+                products = products.Where(p => p.Price >= minPrice.Value).ToList();
+            }
+            if (maxPrice.HasValue)
+            {
+                products = products.Where(p => p.Price <= maxPrice.Value).ToList();
+            }
+            ViewBag.Categories = await _categoryService.GetAllCategoriesAsync();
+            ViewBag.SelectedCategory = categoryId;
+            ViewBag.MinPrice = minPrice;
+            ViewBag.MaxPrice = maxPrice;
+            return View(products);
         }
 
         public async Task<IActionResult> Details(int id)

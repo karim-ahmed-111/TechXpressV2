@@ -11,6 +11,10 @@
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/toastr.js/latest/toastr.min.css" />
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css" />
     <style>
+        body {
+            min-height: 100vh;
+            font-family: Arial, sans-serif;
+        }
         .navbar {
             background: linear-gradient(90deg, #007bff 0%, #0056b3 100%);
         }
@@ -33,6 +37,22 @@
             position: absolute;
             top: 0.2em;
             right: -0.7em;
+        }
+        .container, main[role="main"] {
+            background: none;
+            border-radius: 0;
+            box-shadow: none;
+            padding: 0;
+            margin-top: 0;
+            margin-bottom: 0;
+        }
+        .footer {
+            background: transparent;
+            color: #fff;
+            font-size: 1rem;
+            text-align: center;
+            padding: 1.5rem 0 0.5rem 0;
+            border: none;
         }
     </style>
 </head>

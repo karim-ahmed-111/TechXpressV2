@@ -90,10 +90,10 @@
     <!-- Categories Section -->
     <div class="mb-5">
         <h2 class="fw-bold border-bottom pb-2 mb-4">Browse Categories</h2>
-        <div class="row g-4">
+        <div class="row g-4 justify-content-center">
             @foreach (var category in Model.Categories)
             {
-                <div class="col-md-3 col-6">
+                <div class="col-md-4 col-6">
                     <a href="/Products?categoryId=@category.Id" class="text-decoration-none text-dark">
                         <div class="card h-100 shadow-sm border-0 hover-shadow transition-all text-center">
                             <div class="card-body p-4">
