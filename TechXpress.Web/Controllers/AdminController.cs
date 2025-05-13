@@ -1,11 +1,8 @@
 using Microsoft.AspNetCore.Authorization;
 using Microsoft.AspNetCore.Mvc;
+using Microsoft.AspNetCore.Mvc.Rendering;
 using TechXpress.Data.Entities;
 using TechXpress.Services;
-using Microsoft.AspNetCore.Http;
-using System.IO;
-using Microsoft.AspNetCore.Mvc.Rendering;
-using System.Linq;
 
 namespace TechXpress.Web.Controllers
 {
@@ -79,6 +76,17 @@ namespace TechXpress.Web.Controllers
         public async Task<IActionResult> EditProduct(Product product)
         {
             TempData["Debug"] = "EditProduct action hit.";
+            if (!string.IsNullOrEmpty(product.ImageUrl))
+            {
+                Uri uriResult;
+                bool isValidUrl = Uri.TryCreate(product.ImageUrl, UriKind.Absolute, out uriResult)
+                                  && (uriResult.Scheme == Uri.UriSchemeHttp || uriResult.Scheme == Uri.UriSchemeHttps);
+
+                if (!isValidUrl)
+                {
+                    ModelState.AddModelError("ImageUrl", "Please enter a valid image URL.");
+                }
+            }
             if (!ModelState.IsValid)
             {
                 ViewBag.Categories = new SelectList(await _categoryService.GetAllCategoriesAsync(), "Id", "Name", product.CategoryId);
@@ -180,4 +188,4 @@ namespace TechXpress.Web.Controllers
             return RedirectToAction("Reviews");
         }
     }
-} 
+}

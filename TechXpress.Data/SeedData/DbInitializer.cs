@@ -56,9 +56,9 @@ namespace TechXpress.Data.SeedData
                 var cameras = context.Categories.FirstOrDefault(c => c.Name == "Cameras");
                 var theProducts = new List<Product>
                 {
-                    new Product { Name = "Dell XPS 13", Description = "13-inch laptop", Price = 999, Stock = 10, CategoryId = laptops.Id},
-                    new Product { Name = "iPhone 15", Description = "Latest Apple iPhone", Price = 1199, Stock = 15, CategoryId = mobiles.Id},
-                    new Product { Name = "Canon EOS R5", Description = "Mirrorless camera", Price = 3899, Stock = 5, CategoryId = cameras.Id}
+                    new Product { Name = "Dell XPS 13", Description = "13-inch laptop", Price = 999, Stock = 10,ImageUrl="", CategoryId = laptops.Id},
+                    new Product { Name = "iPhone 15", Description = "Latest Apple iPhone", Price = 1199, Stock = 15,ImageUrl="", CategoryId = mobiles.Id},
+                    new Product { Name = "Canon EOS R5", Description = "Mirrorless camera", Price = 3899, Stock = 5,ImageUrl="", CategoryId = cameras.Id}
                 };
                 context.Products.AddRange(theProducts);
                 await context.SaveChangesAsync();

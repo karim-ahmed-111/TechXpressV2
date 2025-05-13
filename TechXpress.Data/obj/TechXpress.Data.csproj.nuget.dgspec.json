@@ -1,23 +1,23 @@
 {
   "format": 1,
   "restore": {
-    "D:\\Complex\\TechXpress.Data\\TechXpress.Data.csproj": {}
+    "D:\\.Net DEPI\\TechXpressV2\\TechXpress.Data\\TechXpress.Data.csproj": {}
   },
   "projects": {
-    "D:\\Complex\\TechXpress.Data\\TechXpress.Data.csproj": {
+    "D:\\.Net DEPI\\TechXpressV2\\TechXpress.Data\\TechXpress.Data.csproj": {
       "version": "1.0.0",
       "restore": {
-        "projectUniqueName": "D:\\Complex\\TechXpress.Data\\TechXpress.Data.csproj",
+        "projectUniqueName": "D:\\.Net DEPI\\TechXpressV2\\TechXpress.Data\\TechXpress.Data.csproj",
         "projectName": "TechXpress.Data",
-        "projectPath": "D:\\Complex\\TechXpress.Data\\TechXpress.Data.csproj",
-        "packagesPath": "C:\\Users\\karim\\.nuget\\packages\\",
-        "outputPath": "D:\\Complex\\TechXpress.Data\\obj\\",
+        "projectPath": "D:\\.Net DEPI\\TechXpressV2\\TechXpress.Data\\TechXpress.Data.csproj",
+        "packagesPath": "C:\\Users\\DUBAI\\.nuget\\packages\\",
+        "outputPath": "D:\\.Net DEPI\\TechXpressV2\\TechXpress.Data\\obj\\",
         "projectStyle": "PackageReference",
         "fallbackFolders": [
           "C:\\Program Files (x86)\\Microsoft Visual Studio\\Shared\\NuGetPackages"
         ],
         "configFilePaths": [
-          "C:\\Users\\karim\\AppData\\Roaming\\NuGet\\NuGet.Config",
+          "C:\\Users\\DUBAI\\AppData\\Roaming\\NuGet\\NuGet.Config",
           "C:\\Program Files (x86)\\NuGet\\Config\\Microsoft.VisualStudio.FallbackLocation.config",
           "C:\\Program Files (x86)\\NuGet\\Config\\Microsoft.VisualStudio.Offline.config"
         ],
@@ -87,7 +87,7 @@
               "privateAssets": "all"
             }
           },
-          "runtimeIdentifierGraphPath": "C:\\Program Files\\dotnet\\sdk\\9.0.203/PortableRuntimeIdentifierGraph.json"
+          "runtimeIdentifierGraphPath": "C:\\Program Files\\dotnet\\sdk\\9.0.202/PortableRuntimeIdentifierGraph.json"
         }
       }
     }

@@ -2,37 +2,68 @@
 @{
     ViewData["Title"] = "Edit Product";
 }
+
 <h2>Edit Product</h2>
+
 <form asp-action="EditProduct" method="post" enctype="multipart/form-data" style="max-width: 500px;">
     @Html.ValidationSummary(true, "", new { @class = "text-danger" })
     <input type="hidden" asp-for="Id" />
+
     <div class="mb-3">
         <label asp-for="CategoryId" class="form-label"></label>
         <select asp-for="CategoryId" class="form-select" asp-items="ViewBag.Categories"></select>
         <span asp-validation-for="CategoryId" class="text-danger"></span>
     </div>
+
     <div class="mb-3">
         <label asp-for="Name" class="form-label"></label>
         <input asp-for="Name" class="form-control" />
         <span asp-validation-for="Name" class="text-danger"></span>
     </div>
+
     <div class="mb-3">
         <label asp-for="Description" class="form-label"></label>
         <input asp-for="Description" class="form-control" />
         <span asp-validation-for="Description" class="text-danger"></span>
     </div>
+
     <div class="mb-3">
         <label asp-for="Price" class="form-label"></label>
         <input asp-for="Price" class="form-control" />
         <span asp-validation-for="Price" class="text-danger"></span>
     </div>
+
     <div class="mb-3">
         <label asp-for="Stock" class="form-label"></label>
         <input asp-for="Stock" class="form-control" />
         <span asp-validation-for="Stock" class="text-danger"></span>
     </div>
+
+ 
+    <div class="form-group mb-3">
+        <label asp-for="ImageUrl" class="form-label fw-bold">Image URL</label>
+        <input asp-for="ImageUrl" class="form-control rounded-3" placeholder="Enter image URL" />
+        <span asp-validation-for="ImageUrl" class="text-danger"></span>
+    </div>
+
+    
+    <div class="mb-4">
+        @if (!string.IsNullOrEmpty(Model.ImageUrl))
+        {
+            <div class="text-center">
+                <img src="@Model.ImageUrl" alt="Product Image" class="img-fluid rounded-4 shadow-sm"
+                     style="max-width: 200px; max-height: 200px; object-fit: cover;" />
+            </div>
+        }
+        else
+        {
+            <p class="text-muted text-center">No image available</p>
+        }
+    </div>
+
     <button type="submit" class="btn btn-primary">Save</button>
 </form>
+
 @section Scripts {
     <partial name="_ValidationScriptsPartial" />
-} 
+}

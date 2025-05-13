@@ -15,3 +15,21 @@ D:\Complex\TechXpress.Services\obj\Debug\net9.0\TechXpress.Services.pdb
 D:\Complex\TechXpress.Services\obj\Debug\net9.0\ref\TechXpress.Services.dll
 D:\Complex\TechXpress.Services\bin\Debug\net9.0\TechXpress.Services.runtimeconfig.json
 D:\Complex\TechXpress.Services\obj\Debug\net9.0\TechXpress.Services.genruntimeconfig.cache
+D:\.Net DEPI\TechXpressV2\TechXpress.Services\bin\Debug\net9.0\TechXpress.Services.deps.json
+D:\.Net DEPI\TechXpressV2\TechXpress.Services\bin\Debug\net9.0\TechXpress.Services.runtimeconfig.json
+D:\.Net DEPI\TechXpressV2\TechXpress.Services\bin\Debug\net9.0\TechXpress.Services.dll
+D:\.Net DEPI\TechXpressV2\TechXpress.Services\bin\Debug\net9.0\TechXpress.Services.pdb
+D:\.Net DEPI\TechXpressV2\TechXpress.Services\bin\Debug\net9.0\TechXpress.Data.dll
+D:\.Net DEPI\TechXpressV2\TechXpress.Services\bin\Debug\net9.0\TechXpress.Data.pdb
+D:\.Net DEPI\TechXpressV2\TechXpress.Services\obj\Debug\net9.0\TechXpress.Services.csproj.AssemblyReference.cache
+D:\.Net DEPI\TechXpressV2\TechXpress.Services\obj\Debug\net9.0\TechXpress.Services.GeneratedMSBuildEditorConfig.editorconfig
+D:\.Net DEPI\TechXpressV2\TechXpress.Services\obj\Debug\net9.0\TechXpress.Services.AssemblyInfoInputs.cache
+D:\.Net DEPI\TechXpressV2\TechXpress.Services\obj\Debug\net9.0\TechXpress.Services.AssemblyInfo.cs
+D:\.Net DEPI\TechXpressV2\TechXpress.Services\obj\Debug\net9.0\TechXpress.Services.csproj.CoreCompileInputs.cache
+D:\.Net DEPI\TechXpressV2\TechXpress.Services\obj\Debug\net9.0\TechXpress.Services.sourcelink.json
+D:\.Net DEPI\TechXpressV2\TechXpress.Services\obj\Debug\net9.0\TechXpre.82A18D67.Up2Date
+D:\.Net DEPI\TechXpressV2\TechXpress.Services\obj\Debug\net9.0\TechXpress.Services.dll
+D:\.Net DEPI\TechXpressV2\TechXpress.Services\obj\Debug\net9.0\refint\TechXpress.Services.dll
+D:\.Net DEPI\TechXpressV2\TechXpress.Services\obj\Debug\net9.0\TechXpress.Services.pdb
+D:\.Net DEPI\TechXpressV2\TechXpress.Services\obj\Debug\net9.0\TechXpress.Services.genruntimeconfig.cache
+D:\.Net DEPI\TechXpressV2\TechXpress.Services\obj\Debug\net9.0\ref\TechXpress.Services.dll

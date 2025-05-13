@@ -30,6 +30,11 @@
         <select asp-for="CategoryId" class="form-select" asp-items="ViewBag.Categories"></select>
         <span asp-validation-for="CategoryId" class="text-danger"></span>
     </div>
+    <div class="mb-3">
+        <label asp-for="ImageUrl" class="form-label"></label>
+        <input asp-for="ImageUrl" class="form-control" />
+        <span asp-validation-for="ImageUrl" class="text-danger"></span>
+    </div>
     <button type="submit" class="btn btn-success">Add</button>
 </form>
 @section Scripts {

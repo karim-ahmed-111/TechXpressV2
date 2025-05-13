@@ -1,8 +1,8 @@
 using Microsoft.AspNetCore.Authorization;
+using Microsoft.AspNetCore.Identity;
 using Microsoft.AspNetCore.Mvc;
 using TechXpress.Data.Entities;
 using TechXpress.Services;
-using Microsoft.AspNetCore.Identity;
 
 namespace TechXpress.Web.Controllers
 {
@@ -20,10 +20,11 @@ namespace TechXpress.Web.Controllers
             _userManager = userManager;
         }
 
-        public async Task<IActionResult> Index()
+        public async Task<IActionResult> Index(int categoryId)
         {
             var products = await _productService.GetAllProductsAsync();
-            return View(products);
+            var filteredProducts = products.Where(p => p.CategoryId == categoryId).ToList();
+            return View(filteredProducts);
         }
 
         public async Task<IActionResult> Details(int id)
@@ -65,4 +66,4 @@ namespace TechXpress.Web.Controllers
             return RedirectToAction("Details", new { id = productId });
         }
     }
-} 
+}

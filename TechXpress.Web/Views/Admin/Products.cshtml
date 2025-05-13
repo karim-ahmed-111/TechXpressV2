@@ -66,6 +66,7 @@
         <thead>
             <tr>
                 <th>Name</th>
+                <th>Image</th>
                 <th>Description</th>
                 <th>Price</th>
                 <th>Stock</th>
@@ -77,16 +78,34 @@
         {
             <tr>
                 <td><i class="fa fa-box text-secondary me-1"></i> @product.Name</td>
+                    <td>
+                        @if (!string.IsNullOrEmpty(product.ImageUrl))
+                        {
+                            <img src="@product.ImageUrl" class="img-thumbnail" style="max-height: 70px; max-width: 100px;" alt="Product Image" />
+                        }
+                        else
+                        {
+                            <span class="text-muted small fst-italic">No Image</span>
+                        }
+                    </td>
                 <td>@product.Description</td>
                 <td><span class="badge badge-price">$@product.Price.ToString("0.00")</span></td>
                 <td><span class="badge badge-stock">@product.Stock</span></td>
-                <td>
-                    <a href="@Url.Action("EditProduct", new { id = product.Id })" class="btn btn-primary btn-sm me-1"><i class="fa fa-edit"></i> Edit</a>
-                    <form asp-action="DeleteProduct" method="post" style="display:inline">
-                        <input type="hidden" name="id" value="@product.Id" />
-                        <button type="submit" class="btn btn-danger btn-sm" onclick="return confirm('Delete this product?');"><i class="fa fa-trash"></i> Delete</button>
-                    </form>
-                </td>
+                    <td>
+                        <div class="d-flex gap-2 justify-content-center">
+                            <a asp-controller="Admin" asp-action="EditProduct" asp-route-id="@product.Id"
+                               class="btn btn-sm btn-outline-warning rounded-pill px-3">
+                                <i class="bi bi-pencil-square"></i> Edit
+                            </a>
+                            <form asp-controller="Admin" asp-action="DeleteProduct" method="post" asp-route-id="@product.Id"
+                                  onsubmit="return confirm('Delete this product?');" style="display:inline;">
+                                <button type="submit" class="btn btn-sm btn-outline-danger rounded-pill px-3">
+                                    <i class="bi bi-trash-fill"></i> Delete
+                                </button>
+                            </form>
+                        </div>
+                    </td>
+
             </tr>
         }
         </tbody>

@@ -27,6 +27,7 @@ namespace TechXpress.Services
             if (existing != null)
             {
                 existing.Name = product.Name;
+                existing.ImageUrl = product.ImageUrl;
                 existing.Description = product.Description;
                 existing.Price = product.Price;
                 existing.Stock = product.Stock;
@@ -45,4 +46,4 @@ namespace TechXpress.Services
             }
         }
     }
-} 
+}
