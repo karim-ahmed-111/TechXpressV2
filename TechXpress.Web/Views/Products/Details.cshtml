@@ -6,95 +6,339 @@
     var avgRating = (reviews != null && reviews.Any()) ? reviews.Average(r => r.Rating) : 0;
     var reviewCount = (reviews != null) ? reviews.Count() : 0;
 }
-<link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/css/bootstrap.min.css" />
-<h2 class="mb-3">@Model.Name</h2>
-<div class="row g-4">
-    <div class="col-md-7">
-        @if (!string.IsNullOrEmpty(Model.ImageUrl))
-        {
-            <div class="mb-4 text-center">
-                <img src="@Model.ImageUrl" alt="@Model.Name" class="img-fluid rounded shadow" style="max-height:320px; object-fit:contain; background:#f8f9fa;" />
-            </div>
-        }
-        <div class="card mb-3">
-            <div class="card-body">
-                <h5 class="card-title">@Model.Description</h5>
-                <h4 class="card-text text-success">$@Model.Price</h4>
-                <p class="card-text">Stock: <span class="fw-bold">@Model.Stock</span></p>
-                <form method="post" action="/Cart/Add" class="row g-2 align-items-center">
-                    @Html.AntiForgeryToken()
-                    <input type="hidden" name="productId" value="@Model.Id" />
-                    <div class="col-auto">
-                        <input type="number" name="quantity" value="1" min="1" max="@Model.Stock" class="form-control" style="width: 90px;" />
-                    </div>
-                    <div class="col-auto">
-                        <button type="submit" class="btn btn-success">Add to Cart</button>
-                    </div>
-                </form>
-            </div>
-        </div>
-        <div class="card mt-4">
-            <div class="card-header bg-light d-flex align-items-center justify-content-between">
-                <span class="fw-bold">Reviews</span>
-                @if (reviewCount > 0)
+
+<div class="row mb-5">
+    <!-- Breadcrumb Navigation -->
+    <div class="col-12 mb-4">
+        <nav aria-label="breadcrumb">
+            <ol class="breadcrumb">
+                <li class="breadcrumb-item"><a href="/" class="text-decoration-none">Home</a></li>
+                <li class="breadcrumb-item"><a href="/Products" class="text-decoration-none">Products</a></li>
+                <li class="breadcrumb-item active" aria-current="page">@Model.Name</li>
+            </ol>
+        </nav>
+    </div>
+
+    <!-- Product Image -->
+    <div class="col-md-5 mb-4">
+        <div class="card h-100">
+            <div class="card-body d-flex align-items-center justify-content-center" style="min-height: 400px;">
+                @if (!string.IsNullOrEmpty(Model.ImageUrl))
                 {
-                    <span class="badge bg-primary">@avgRating.ToString("0.0")/5 from @reviewCount review@(reviewCount == 1 ? "" : "s")</span>
-                }
-            </div>
-            <div class="card-body">
-                @if (reviews != null && reviews.Any())
-                {
-                    <ul class="list-group mb-3">
-                        @foreach (var review in reviews)
-                        {
-                            <li class="list-group-item">
-                                <div class="d-flex justify-content-between align-items-center">
-                                    <span class="fw-bold">@review.Rating/5</span>
-                                    <small class="text-muted">@review.Date.ToShortDateString()</small>
-                                </div>
-                                <div>@review.Comment</div>
-                                <div class="text-muted small">by @(review.User?.FullName ?? review.UserId)</div>
-                            </li>
-                        }
-                    </ul>
+                    <img src="@Model.ImageUrl" alt="@Model.Name" class="img-fluid" style="max-height: 350px; max-width: 100%;" />
                 }
                 else
                 {
-                    <p class="text-muted">No reviews yet.</p>
+                    <i class="fa-solid fa-box-open fa-5x text-secondary"></i>
                 }
-                @if (canReview)
+            </div>
+        </div>
+    </div>
+
+    <!-- Product Details -->
+    <div class="col-md-7">
+        <div class="card h-100">
+            <div class="card-body">
+                <h1 class="mb-2">@Model.Name</h1>
+                
+                <!-- Ratings Display -->
+                <div class="mb-3">
+                    <div class="d-flex align-items-center">
+                        <div class="me-2">
+                            @for (int i = 1; i <= 5; i++)
+                            {
+                                if (i <= Math.Round(avgRating))
+                                {
+                                    <i class="fas fa-star text-warning"></i>
+                                }
+                                else
+                                {
+                                    <i class="far fa-star text-warning"></i>
+                                }
+                            }
+                        </div>
+                        <span class="text-secondary small">
+                            @if (reviewCount > 0)
+                            {
+                                <span>@avgRating.ToString("0.0")/5 (@reviewCount review@(reviewCount == 1 ? "" : "s"))</span>
+                            }
+                            else
+                            {
+                                <span>No reviews yet</span>
+                            }
+                        </span>
+                    </div>
+                </div>
+                
+                <!-- Category -->
+                <div class="mb-3">
+                    <span class="badge bg-primary">@Model.Category?.Name</span>
+                </div>
+                
+                <!-- Price -->
+                <div class="product-price mb-3">$@Model.Price.ToString("0.00")</div>
+                
+                <!-- Description -->
+                <p class="mb-4">@Model.Description</p>
+                
+                <!-- Stock Status -->
+                <div class="mb-4">
+                    @if (Model.Stock > 10)
+                    {
+                        <div class="d-flex align-items-center text-success">
+                            <i class="fas fa-check-circle me-2"></i>
+                            <span>In Stock (@Model.Stock available)</span>
+                        </div>
+                    }
+                    else if (Model.Stock > 0)
+                    {
+                        <div class="d-flex align-items-center text-warning">
+                            <i class="fas fa-exclamation-circle me-2"></i>
+                            <span>Low Stock (Only @Model.Stock left)</span>
+                        </div>
+                    }
+                    else
+                    {
+                        <div class="d-flex align-items-center text-danger">
+                            <i class="fas fa-times-circle me-2"></i>
+                            <span>Out of Stock</span>
+                        </div>
+                    }
+                </div>
+                
+                <!-- Add to Cart Form -->
+                @if (Model.Stock > 0)
                 {
-                    <hr />
-                    <h6>Add Your Review</h6>
-                    <form asp-action="AddReview" method="post" class="mb-3">
+                    <form method="post" action="/Cart/Add">
                         @Html.AntiForgeryToken()
                         <input type="hidden" name="productId" value="@Model.Id" />
-                        <div class="mb-2">
-                            <label class="form-label">Rating</label>
-                            <select name="rating" class="form-select" style="max-width: 120px;">
-                                @for (int i = 1; i <= 5; i++)
-                                {
-                                    <option value="@i">@i</option>
-                                }
-                            </select>
+                        <div class="d-flex align-items-center">
+                            <div class="input-group me-3" style="width: 130px;">
+                                <button class="btn btn-outline-secondary" type="button" id="decreaseQty">
+                                    <i class="fas fa-minus"></i>
+                                </button>
+                                <input type="number" name="quantity" id="quantity" value="1" min="1" max="@Model.Stock" class="form-control text-center">
+                                <button class="btn btn-outline-secondary" type="button" id="increaseQty">
+                                    <i class="fas fa-plus"></i>
+                                </button>
+                            </div>
+                            <button type="submit" class="btn btn-primary">
+                                <i class="fas fa-cart-plus me-2"></i>Add to Cart
+                            </button>
                         </div>
-                        <div class="mb-2">
-                            <label class="form-label">Comment</label>
-                            <textarea name="comment" class="form-control" required></textarea>
-                        </div>
-                        <button type="submit" class="btn btn-primary">Submit Review</button>
                     </form>
+                }
+                else
+                {
+                    <button type="button" class="btn btn-secondary" disabled>
+                        <i class="fas fa-cart-plus me-2"></i>Out of Stock
+                    </button>
                 }
             </div>
         </div>
     </div>
 </div>
+
+<!-- Reviews Section -->
+<div class="card mb-5">
+    <div class="card-header">
+        <h2 class="mb-0"><i class="fas fa-comments me-2"></i>Customer Reviews</h2>
+    </div>
+    <div class="card-body">
+        @if (reviews != null && reviews.Any())
+        {
+            <div class="row mb-4">
+                <div class="col-md-4">
+                    <div class="text-center border-end">
+                        <div class="display-1 fw-bold text-primary">@avgRating.ToString("0.0")</div>
+                        <div class="mb-2">
+                            @for (int i = 1; i <= 5; i++)
+                            {
+                                if (i <= Math.Round(avgRating))
+                                {
+                                    <i class="fas fa-star text-warning"></i>
+                                }
+                                else
+                                {
+                                    <i class="far fa-star text-warning"></i>
+                                }
+                            }
+                        </div>
+                        <p class="text-secondary">Based on @reviewCount review@(reviewCount == 1 ? "" : "s")</p>
+                    </div>
+                </div>
+                <div class="col-md-8">
+                    <h4 class="mb-3">Rating Distribution</h4>
+                    @for (int rating = 5; rating >= 1; rating--)
+                    {
+                        var ratingCount = reviews.Count(r => r.Rating == rating);
+                        var percentage = reviewCount > 0 ? (ratingCount * 100) / reviewCount : 0;
+                        
+                        <div class="d-flex align-items-center mb-2">
+                            <div class="me-2" style="width: 60px;">@rating <i class="fas fa-star text-warning"></i></div>
+                            <div class="flex-grow-1">
+                                <div class="progress" style="height: 10px;">
+                                    <div class="progress-bar bg-primary" role="progressbar" style="width: @percentage%;" 
+                                         aria-valuenow="@percentage" aria-valuemin="0" aria-valuemax="100"></div>
+                                </div>
+                            </div>
+                            <div class="ms-2" style="width: 40px;">@ratingCount</div>
+                        </div>
+                    }
+                </div>
+            </div>
+            
+            <hr class="my-4" />
+            
+            <!-- Reviews List -->
+            <div class="reviews-list">
+                @foreach (var review in reviews.OrderByDescending(r => r.Date))
+                {
+                    <div class="review-item mb-4 pb-4 border-bottom">
+                        <div class="d-flex justify-content-between align-items-center mb-2">
+                            <div>
+                                <span class="fw-bold">@(review.User?.FullName ?? (!string.IsNullOrEmpty(review.UserId) ? review.UserId : "Anonymous"))</span>
+                                <div class="small text-secondary">@review.Date.ToString("MMMM dd, yyyy")</div>
+                            </div>
+                            <div>
+                                @for (int i = 1; i <= 5; i++)
+                                {
+                                    if (i <= review.Rating)
+                                    {
+                                        <i class="fas fa-star text-warning"></i>
+                                    }
+                                    else
+                                    {
+                                        <i class="far fa-star text-warning"></i>
+                                    }
+                                }
+                            </div>
+                        </div>
+                        <p class="mb-0">@review.Comment</p>
+                    </div>
+                }
+            </div>
+        }
+        else
+        {
+            <div class="alert alert-info text-center">
+                <i class="fas fa-info-circle me-2"></i>No reviews yet. Be the first to review this product!
+            </div>
+        }
+        
+        <!-- Add Review Form -->
+        <div class="mt-5">
+            <h3 class="mb-3">Write a Review</h3>
+            
+            @if (!User.Identity.IsAuthenticated)
+            {
+                <div class="alert alert-info mb-4">
+                    <i class="fas fa-info-circle me-2"></i>You are reviewing as <strong>Anonymous</strong>. <a href="/Account/Login" class="alert-link">Log in</a> for a better experience.
+                </div>
+            }
+            
+            <form asp-action="AddReview" method="post">
+                @Html.AntiForgeryToken()
+                <input type="hidden" name="productId" value="@Model.Id" />
+                
+                <div class="mb-3">
+                    <label class="form-label">Rating</label>
+                    <div class="star-rating mb-2">
+                        <input type="hidden" name="rating" value="5" />
+                        <i class="fas fa-star filled" data-value="1"></i>
+                        <i class="fas fa-star filled" data-value="2"></i>
+                        <i class="fas fa-star filled" data-value="3"></i>
+                        <i class="fas fa-star filled" data-value="4"></i>
+                        <i class="fas fa-star filled" data-value="5"></i>
+                    </div>
+                </div>
+                
+                @if (!User.Identity.IsAuthenticated)
+                {
+                    <div class="mb-3">
+                        <label class="form-label">Your Name</label>
+                        <input type="text" name="anonymousName" class="form-control" maxlength="50" required />
+                    </div>
+                }
+                
+                <div class="mb-3">
+                    <label class="form-label">Comment</label>
+                    <textarea name="comment" class="form-control" rows="4" required></textarea>
+                </div>
+                
+                <button type="submit" class="btn btn-primary">
+                    <i class="fas fa-paper-plane me-2"></i>Submit Review
+                </button>
+            </form>
+        </div>
+    </div>
+</div>
+
+<!-- Related Products Section -->
+<div class="related-products mb-5">
+    <h2 class="section-title mb-4"><i class="fas fa-box-open me-2"></i>Related Products</h2>
+    <div class="row">
+        <div class="col-12">
+            <p class="text-center text-secondary">Check out these great products from the same category!</p>
+        </div>
+    </div>
+</div>
+
+<style>
+    /* Star rating styles removed as they are now in site.css */
+    
+    /* Product price emphasis */
+    .product-price {
+        font-size: 2rem;
+        font-weight: 700;
+        color: var(--primary-color);
+    }
+    
+    /* Review item styling */
+    .review-item:last-child {
+        border-bottom: none !important;
+        padding-bottom: 0 !important;
+        margin-bottom: 0 !important;
+    }
+    
+    /* Breadcrumb styling */
+    .breadcrumb {
+        background: transparent;
+    }
+    
+    .breadcrumb-item a {
+        color: var(--primary-color);
+    }
+    
+    .breadcrumb-item.active {
+        color: var(--text-secondary);
+    }
+    
+    .breadcrumb-item+.breadcrumb-item::before {
+        color: var(--text-secondary);
+    }
+</style>
+
 @section Scripts {
-    <partial name="_ValidationScriptsPartial" />
-    <script src="https://cdnjs.cloudflare.com/ajax/libs/toastr.js/latest/toastr.min.js"></script>
-    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/toastr.js/latest/toastr.min.css" />
     <script>
         $(function () {
+            // Quantity increment/decrement
+            $('#increaseQty').click(function() {
+                var value = parseInt($('#quantity').val());
+                var max = parseInt($('#quantity').attr('max'));
+                if (value < max) {
+                    $('#quantity').val(value + 1);
+                }
+            });
+            
+            $('#decreaseQty').click(function() {
+                var value = parseInt($('#quantity').val());
+                if (value > 1) {
+                    $('#quantity').val(value - 1);
+                }
+            });
+            
+            // Notification handling
             @if (TempData["Success"] != null)
             {
                 <text>toastr.success("@TempData["Success"]");</text>

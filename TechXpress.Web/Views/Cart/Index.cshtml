@@ -2,49 +2,716 @@
 @{
     ViewData["Title"] = "Shopping Cart";
 }
-<h2>Shopping Cart</h2>
-@if (Model.CartItems.Any())
-{
-    <table class="table table-bordered">
-        <thead>
-            <tr>
-                <th>Product</th>
-                <th>Quantity</th>
-                <th>Unit Price</th>
-                <th>Total</th>
-                <th>Actions</th>
-            </tr>
-        </thead>
-        <tbody>
-        @foreach (var item in Model.CartItems)
-        {
-            <tr>
-                <td>@item.Product?.Name</td>
-                <td>
-                    <form asp-action="UpdateQuantity" method="post" class="d-inline">
-                        @Html.AntiForgeryToken()
-                        <input type="hidden" name="cartItemId" value="@item.Id" />
-                        <input type="number" name="quantity" value="@item.Quantity" min="1" class="form-control d-inline" style="width: 70px; display: inline-block;" />
-                        <button type="submit" class="btn btn-sm btn-primary">Update</button>
-                    </form>
-                </td>
-                <td>$@item.UnitPrice</td>
-                <td>$@(item.UnitPrice * item.Quantity)</td>
-                <td>
-                    <form asp-action="Remove" method="post" class="d-inline">
-                        @Html.AntiForgeryToken()
-                        <input type="hidden" name="cartItemId" value="@item.Id" />
-                        <button type="submit" class="btn btn-sm btn-danger" onclick="return confirm('Remove this item?');">Remove</button>
-                    </form>
-                </td>
-            </tr>
-        }
-        </tbody>
-    </table>
-    <h4 class="text-end">Grand Total: $@Model.CartItems.Sum(i => i.UnitPrice * i.Quantity)</h4>
-    <a href="/Orders/Checkout" class="btn btn-success">Checkout</a>
-}
-else
-{
-    <p>Your cart is empty.</p>
-} 
+
+<div class="shopping-cart-container">
+    <div class="page-header mb-4">
+        <div class="d-flex align-items-center">
+            <div class="page-icon me-3">
+                <i class="fas fa-shopping-cart"></i>
+            </div>
+            <div>
+                <h1 class="section-title mb-0">Your Shopping Cart</h1>
+                <p class="text-secondary">@(Model.CartItems.Any() ? $"{Model.CartItems.Count} items in your cart" : "Your cart is empty")</p>
+            </div>
+        </div>
+        <div class="shopping-steps">
+            <div class="step active">
+                <div class="step-icon">
+                    <i class="fas fa-shopping-cart"></i>
+                </div>
+                <div class="step-label">Cart</div>
+            </div>
+            <div class="step-divider"></div>
+            <div class="step">
+                <div class="step-icon">
+                    <i class="fas fa-address-card"></i>
+                </div>
+                <div class="step-label">Details</div>
+            </div>
+            <div class="step-divider"></div>
+            <div class="step">
+                <div class="step-icon">
+                    <i class="fas fa-credit-card"></i>
+                </div>
+                <div class="step-label">Payment</div>
+            </div>
+            <div class="step-divider"></div>
+            <div class="step">
+                <div class="step-icon">
+                    <i class="fas fa-check-circle"></i>
+                </div>
+                <div class="step-label">Confirm</div>
+            </div>
+        </div>
+    </div>
+
+    @if (Model.CartItems.Any())
+    {
+        <div class="row">
+            <!-- Cart Items -->
+            <div class="col-lg-8 mb-4">
+                <div class="card cart-items-card">
+                    <div class="card-header">
+                        <h5 class="mb-0"><i class="fas fa-box me-2"></i>Cart Items</h5>
+                    </div>
+                    <div class="card-body p-0">
+                        <div class="cart-items">
+                            @foreach (var item in Model.CartItems)
+                            {
+                                <div class="cart-item">
+                                    <div class="cart-item-image">
+                                        @if (!string.IsNullOrEmpty(item.Product?.ImageUrl))
+                                        {
+                                            <img src="@item.Product.ImageUrl" alt="@item.Product?.Name" class="img-fluid">
+                                        }
+                                        else
+                                        {
+                                            <div class="placeholder-image">
+                                                <i class="fa-solid fa-box-open"></i>
+                                            </div>
+                                        }
+                                    </div>
+                                    <div class="cart-item-details">
+                                        <div class="item-info">
+                                            <h5>
+                                                <a href="/Products/Details/@item.ProductId" class="item-name">@item.Product?.Name</a>
+                                            </h5>
+                                            <span class="item-category">@item.Product?.Category?.Name</span>
+                                        </div>
+                                        <div class="item-price">
+                                            <span class="price-value">$@item.UnitPrice.ToString("0.00")</span>
+                                            <span class="price-label">per item</span>
+                                        </div>
+                                        <div class="item-quantity">
+                                            <form asp-action="UpdateQuantity" method="post" class="d-flex">
+                                                @Html.AntiForgeryToken()
+                                                <input type="hidden" name="cartItemId" value="@item.Id" />
+                                                <div class="quantity-control">
+                                                    <button class="quantity-btn decrease" type="button">
+                                                        <i class="fas fa-minus"></i>
+                                                    </button>
+                                                    <input type="number" name="quantity" value="@item.Quantity" min="1" class="quantity-input">
+                                                    <button class="quantity-btn increase" type="button">
+                                                        <i class="fas fa-plus"></i>
+                                                    </button>
+                                                </div>
+                                                <button type="submit" class="btn btn-sm btn-primary update-btn">
+                                                    <i class="fas fa-sync-alt"></i>
+                                                </button>
+                                            </form>
+                                        </div>
+                                        <div class="item-total">
+                                            <span class="total-value">$@((item.UnitPrice * item.Quantity).ToString("0.00"))</span>
+                                            <span class="total-label">total</span>
+                                        </div>
+                                        <div class="item-actions">
+                                            <form asp-action="Remove" method="post">
+                                                @Html.AntiForgeryToken()
+                                                <input type="hidden" name="cartItemId" value="@item.Id" />
+                                                <button type="submit" class="btn btn-sm btn-outline-danger remove-btn" 
+                                                        onclick="return confirm('Are you sure you want to remove this item?');">
+                                                    <i class="fas fa-trash"></i>
+                                                </button>
+                                            </form>
+                                        </div>
+                                    </div>
+                                </div>
+                            }
+                        </div>
+                    </div>
+                    <div class="card-footer">
+                        <div class="d-flex justify-content-between">
+                            <a href="/Products" class="btn btn-outline-primary">
+                                <i class="fas fa-arrow-left me-2"></i>Continue Shopping
+                            </a>
+                            <button type="button" class="btn btn-outline-danger" 
+                                    onclick="if(confirm('Are you sure you want to empty your cart?')) { window.location.href='/Cart/Clear'; }">
+                                <i class="fas fa-trash me-2"></i>Clear Cart
+                            </button>
+                        </div>
+                    </div>
+                </div>
+            </div>
+            
+            <!-- Order Summary -->
+            <div class="col-lg-4">
+                <div class="card order-summary-card">
+                    <div class="card-header">
+                        <h5 class="mb-0"><i class="fas fa-file-invoice-dollar me-2"></i>Order Summary</h5>
+                    </div>
+                    <div class="card-body">
+                        <div class="summary-item">
+                            <span class="summary-label">Subtotal</span>
+                            <span class="summary-value">$@Model.CartItems.Sum(i => i.UnitPrice * i.Quantity).ToString("0.00")</span>
+                        </div>
+                        <div class="summary-item">
+                            <span class="summary-label">Shipping</span>
+                            <span class="summary-value shipping-free">Free</span>
+                        </div>
+                        <div class="summary-item">
+                            <span class="summary-label">Tax</span>
+                            <span class="summary-value">$@((Model.CartItems.Sum(i => i.UnitPrice * i.Quantity) * 0.05m).ToString("0.00"))</span>
+                        </div>
+                        
+                        <div class="summary-divider"></div>
+                        
+                        <div class="summary-total">
+                            <span class="total-label">Total</span>
+                            <span class="total-value">$@((Model.CartItems.Sum(i => i.UnitPrice * i.Quantity) * 1.05m).ToString("0.00"))</span>
+                        </div>
+                        
+                        <div class="d-grid mt-4">
+                            <a href="/Orders/Checkout" class="btn btn-primary btn-lg checkout-btn">
+                                <span class="btn-content">
+                                    <span class="btn-text">Proceed to Checkout</span>
+                                    <i class="fas fa-arrow-right ms-2"></i>
+                                </span>
+                            </a>
+                        </div>
+                        
+                        <div class="promo-code mt-4">
+                            <label class="form-label">Promo Code</label>
+                            <div class="input-group">
+                                <input type="text" class="form-control" placeholder="Enter code">
+                                <button class="btn btn-outline-primary" type="button">Apply</button>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+                
+                <div class="card mt-4 payment-methods-card">
+                    <div class="card-body">
+                        <h5 class="mb-3">We Accept</h5>
+                        <div class="payment-methods">
+                            <div class="payment-method">
+                                <i class="fab fa-cc-visa"></i>
+                            </div>
+                            <div class="payment-method">
+                                <i class="fab fa-cc-mastercard"></i>
+                            </div>
+                            <div class="payment-method">
+                                <i class="fab fa-cc-amex"></i>
+                            </div>
+                            <div class="payment-method">
+                                <i class="fab fa-cc-paypal"></i>
+                            </div>
+                        </div>
+                        <div class="secure-checkout mt-3">
+                            <i class="fas fa-lock me-2"></i>
+                            <span>Secure Checkout</span>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    }
+    else
+    {
+        <div class="empty-cart-container">
+            <div class="empty-cart-content">
+                <div class="empty-cart-icon">
+                    <i class="fas fa-shopping-cart"></i>
+                </div>
+                <h3>Your cart is empty</h3>
+                <p>Looks like you haven't added any products to your cart yet.</p>
+                <a href="/Products" class="btn btn-primary btn-lg mt-3">
+                    <i class="fas fa-store me-2"></i>Browse Products
+                </a>
+                <div class="cart-decoration cart-dec-1"></div>
+                <div class="cart-decoration cart-dec-2"></div>
+            </div>
+        </div>
+    }
+</div>
+
+<style>
+    /* Page header styling */
+    .page-header {
+        display: flex;
+        justify-content: space-between;
+        align-items: flex-start;
+        flex-wrap: wrap;
+        gap: 2rem;
+    }
+    
+    .page-icon {
+        width: 60px;
+        height: 60px;
+        border-radius: 50%;
+        background: linear-gradient(135deg, var(--primary-color), var(--accent-color));
+        display: flex;
+        align-items: center;
+        justify-content: center;
+        color: white;
+        font-size: 1.5rem;
+        box-shadow: 0 10px 20px rgba(99, 102, 241, 0.3);
+    }
+    
+    /* Shopping Steps */
+    .shopping-steps {
+        display: flex;
+        align-items: center;
+        margin-left: auto;
+    }
+    
+    .step {
+        display: flex;
+        flex-direction: column;
+        align-items: center;
+        transition: all var(--transition-normal);
+    }
+    
+    .step-icon {
+        width: 40px;
+        height: 40px;
+        border-radius: 50%;
+        background: var(--glass-bg);
+        border: 1px solid var(--glass-border);
+        display: flex;
+        align-items: center;
+        justify-content: center;
+        color: var(--text-secondary);
+        margin-bottom: 0.5rem;
+        transition: all var(--transition-normal);
+    }
+    
+    .step.active .step-icon {
+        background: linear-gradient(135deg, var(--primary-color), var(--accent-color));
+        border-color: var(--accent-color);
+        color: white;
+        box-shadow: 0 5px 15px rgba(99, 102, 241, 0.3);
+    }
+    
+    .step-label {
+        font-size: 0.8rem;
+        color: var(--text-secondary);
+    }
+    
+    .step.active .step-label {
+        color: var(--primary-color);
+        font-weight: 500;
+    }
+    
+    .step-divider {
+        width: 50px;
+        height: 1px;
+        background: var(--glass-border);
+        margin: 0 0.5rem 1.5rem;
+    }
+    
+    /* Cart items card */
+    .cart-items-card {
+        border-radius: 1rem;
+        overflow: hidden;
+        border: 1px solid var(--glass-border);
+    }
+    
+    .cart-items {
+        display: flex;
+        flex-direction: column;
+    }
+    
+    .cart-item {
+        padding: 1.5rem;
+        border-bottom: 1px solid var(--glass-border);
+        display: flex;
+        gap: 1.5rem;
+        transition: all var(--transition-normal);
+    }
+    
+    .cart-item:last-child {
+        border-bottom: none;
+    }
+    
+    .cart-item:hover {
+        background: rgba(99, 102, 241, 0.05);
+    }
+    
+    .cart-item-image {
+        width: 100px;
+        height: 100px;
+        display: flex;
+        align-items: center;
+        justify-content: center;
+        border-radius: 0.5rem;
+        background: rgba(15, 23, 42, 0.4);
+        overflow: hidden;
+    }
+    
+    .cart-item-image img {
+        max-width: 90%;
+        max-height: 90%;
+        object-fit: contain;
+    }
+    
+    .placeholder-image {
+        width: 100%;
+        height: 100%;
+        display: flex;
+        align-items: center;
+        justify-content: center;
+        color: var(--text-secondary);
+        font-size: 2rem;
+    }
+    
+    .cart-item-details {
+        flex: 1;
+        display: flex;
+        flex-wrap: wrap;
+        gap: 1rem;
+        align-items: center;
+    }
+    
+    .item-info {
+        flex: 2;
+        min-width: 200px;
+    }
+    
+    .item-name {
+        color: var(--text-primary);
+        text-decoration: none;
+        transition: color var(--transition-fast);
+    }
+    
+    .item-name:hover {
+        color: var(--primary-color);
+    }
+    
+    .item-category {
+        font-size: 0.85rem;
+        color: var(--text-secondary);
+        display: block;
+        margin-top: 0.25rem;
+    }
+    
+    .item-price {
+        flex: 1;
+        min-width: 100px;
+        display: flex;
+        flex-direction: column;
+    }
+    
+    .price-value {
+        font-weight: 500;
+        color: var(--primary-color);
+    }
+    
+    .price-label {
+        font-size: 0.75rem;
+        color: var(--text-secondary);
+        margin-top: 0.25rem;
+    }
+    
+    .item-quantity {
+        flex: 1;
+        min-width: 150px;
+    }
+    
+    .quantity-control {
+        display: flex;
+        align-items: center;
+        border: 1px solid var(--glass-border);
+        border-radius: 0.5rem;
+        overflow: hidden;
+    }
+    
+    .quantity-btn {
+        width: 36px;
+        height: 36px;
+        display: flex;
+        align-items: center;
+        justify-content: center;
+        background: var(--glass-bg);
+        border: none;
+        color: var(--text-primary);
+        transition: all var(--transition-fast);
+        cursor: pointer;
+    }
+    
+    .quantity-btn:hover {
+        background: rgba(99, 102, 241, 0.1);
+        color: var(--primary-color);
+    }
+    
+    .quantity-input {
+        width: 50px;
+        height: 36px;
+        border: none;
+        background: transparent;
+        color: var(--text-primary);
+        text-align: center;
+        padding: 0;
+    }
+    
+    .update-btn {
+        margin-left: 0.5rem;
+    }
+    
+    .item-total {
+        flex: 1;
+        min-width: 100px;
+        display: flex;
+        flex-direction: column;
+    }
+    
+    .total-value {
+        font-weight: 600;
+        color: var(--text-primary);
+        font-size: 1.1rem;
+    }
+    
+    .total-label {
+        font-size: 0.75rem;
+        color: var(--text-secondary);
+        margin-top: 0.25rem;
+    }
+    
+    .item-actions {
+        flex: 0 0 auto;
+    }
+    
+    .remove-btn {
+        width: 36px;
+        height: 36px;
+        display: flex;
+        align-items: center;
+        justify-content: center;
+        color: var(--danger-color);
+        border-color: var(--danger-color);
+    }
+    
+    .remove-btn:hover {
+        background: var(--danger-color);
+        color: white;
+    }
+    
+    /* Order summary card */
+    .order-summary-card {
+        border-radius: 1rem;
+        overflow: hidden;
+        border: 1px solid var(--glass-border);
+    }
+    
+    .summary-item {
+        display: flex;
+        justify-content: space-between;
+        margin-bottom: 1rem;
+    }
+    
+    .summary-label {
+        color: var(--text-secondary);
+    }
+    
+    .summary-value {
+        font-weight: 500;
+    }
+    
+    .shipping-free {
+        color: var(--success-color);
+    }
+    
+    .summary-divider {
+        height: 1px;
+        background: var(--glass-border);
+        margin: 1.5rem 0;
+    }
+    
+    .summary-total {
+        display: flex;
+        justify-content: space-between;
+        align-items: center;
+    }
+    
+    .total-label {
+        font-size: 1.1rem;
+        font-weight: 600;
+    }
+    
+    .total-value {
+        font-size: 1.5rem;
+        font-weight: 700;
+        color: var(--primary-color);
+    }
+    
+    .checkout-btn {
+        position: relative;
+        overflow: hidden;
+        padding: 1rem;
+    }
+    
+    .btn-content {
+        position: relative;
+        z-index: 1;
+        display: flex;
+        align-items: center;
+        justify-content: center;
+    }
+    
+    .checkout-btn::before {
+        content: "";
+        position: absolute;
+        top: 0;
+        left: -100%;
+        width: 100%;
+        height: 100%;
+        background: linear-gradient(90deg, transparent, rgba(255,255,255,0.2), transparent);
+        transition: left 0.8s ease;
+    }
+    
+    .checkout-btn:hover::before {
+        left: 100%;
+    }
+    
+    /* Payment methods */
+    .payment-methods {
+        display: flex;
+        gap: 1rem;
+        margin-bottom: 1rem;
+    }
+    
+    .payment-method {
+        width: 50px;
+        height: 30px;
+        display: flex;
+        align-items: center;
+        justify-content: center;
+        background: var(--glass-bg);
+        border: 1px solid var(--glass-border);
+        border-radius: 0.25rem;
+        font-size: 1.2rem;
+        transition: all var(--transition-normal);
+    }
+    
+    .payment-method:hover {
+        transform: translateY(-3px);
+        box-shadow: 0 5px 15px rgba(0, 0, 0, 0.1);
+    }
+    
+    .secure-checkout {
+        color: var(--success-color);
+        font-size: 0.9rem;
+        display: flex;
+        align-items: center;
+        justify-content: center;
+    }
+    
+    /* Empty cart */
+    .empty-cart-container {
+        display: flex;
+        align-items: center;
+        justify-content: center;
+        min-height: 400px;
+        position: relative;
+        overflow: hidden;
+    }
+    
+    .empty-cart-content {
+        text-align: center;
+        max-width: 500px;
+        padding: 3rem;
+        background: var(--glass-bg);
+        border: 1px solid var(--glass-border);
+        border-radius: 1rem;
+        box-shadow: 0 10px 30px rgba(0, 0, 0, 0.1);
+        position: relative;
+        z-index: 1;
+    }
+    
+    .empty-cart-icon {
+        width: 100px;
+        height: 100px;
+        border-radius: 50%;
+        background: linear-gradient(135deg, var(--primary-color), var(--accent-color));
+        display: flex;
+        align-items: center;
+        justify-content: center;
+        margin: 0 auto 1.5rem;
+        color: white;
+        font-size: 2.5rem;
+        box-shadow: 0 10px 20px rgba(99, 102, 241, 0.3);
+    }
+    
+    .empty-cart-content h3 {
+        margin-bottom: 1rem;
+        font-weight: 600;
+    }
+    
+    .empty-cart-content p {
+        color: var(--text-secondary);
+        margin-bottom: 1.5rem;
+    }
+    
+    .cart-decoration {
+        position: absolute;
+        border-radius: 50%;
+        opacity: 0.5;
+        z-index: -1;
+    }
+    
+    .cart-dec-1 {
+        width: 200px;
+        height: 200px;
+        background: radial-gradient(circle, rgba(99, 102, 241, 0.2) 0%, transparent 70%);
+        top: -100px;
+        left: -100px;
+        animation: pulse 10s infinite alternate;
+    }
+    
+    .cart-dec-2 {
+        width: 300px;
+        height: 300px;
+        background: radial-gradient(circle, rgba(236, 72, 153, 0.2) 0%, transparent 70%);
+        bottom: -150px;
+        right: -150px;
+        animation: pulse 15s infinite alternate-reverse;
+    }
+    
+    /* Recommended products */
+    .recommended-products .card:hover .card-img-top {
+        transform: scale(1.1);
+    }
+    
+    /* Styling for empty cart message */
+    .empty-cart-container {
+        text-align: center;
+        padding: 5rem 2rem;
+    }
+</style>
+
+<script>
+    document.addEventListener('DOMContentLoaded', function() {
+        // Quantity increment/decrement functionality
+        const decreaseBtns = document.querySelectorAll('.quantity-btn.decrease');
+        const increaseBtns = document.querySelectorAll('.quantity-btn.increase');
+        
+        decreaseBtns.forEach(btn => {
+            btn.addEventListener('click', function() {
+                const input = this.parentElement.querySelector('.quantity-input');
+                const value = parseInt(input.value) || 1;
+                if (value > 1) {
+                    input.value = value - 1;
+                }
+            });
+        });
+        
+        increaseBtns.forEach(btn => {
+            btn.addEventListener('click', function() {
+                const input = this.parentElement.querySelector('.quantity-input');
+                const value = parseInt(input.value) || 1;
+                input.value = value + 1;
+            });
+        });
+        
+        // Add hover effects for cart items
+        const cartItems = document.querySelectorAll('.cart-item');
+        cartItems.forEach(item => {
+            item.addEventListener('mouseenter', function() {
+                this.style.transform = 'translateX(5px)';
+            });
+            
+            item.addEventListener('mouseleave', function() {
+                this.style.transform = 'translateX(0)';
+            });
+        });
+    });
+</script> 

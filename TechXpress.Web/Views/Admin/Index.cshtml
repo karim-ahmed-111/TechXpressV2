@@ -6,99 +6,415 @@
 }
 
 <style>
+    :root {
+        --primary-color: #0066ff;
+        --secondary-color: #00c6ff;
+        --accent-color: #6e42e5;
+        --glow-color: rgba(0, 102, 255, 0.6);
+        --card-bg: rgba(21, 23, 34, 0.75);
+        --card-border: rgba(111, 145, 255, 0.2);
+        --text-primary: #e6e8ff;
+        --text-secondary: #a0a8c9;
+        --success-color: #00d0a0;
+        --warning-color: #ffc107;
+        --danger-color: #ff5a65;
+        --dark-bg: #0f1225;
+    }
+
     body.admin-dashboard-bg {
-        background: #f4f6fa;
+        background: linear-gradient(135deg, #121527 0%, #1c1f36 100%);
+        color: var(--text-primary);
         min-height: 100vh;
         position: relative;
+        transition: all 0.3s ease;
+        padding-bottom: 60px; /* Add padding at the bottom for spacing */
     }
+
     .admin-dashboard-overlay {
-        display: none;
+        position: fixed;
+        top: 0;
+        left: 0;
+        right: 0;
+        bottom: 0;
+        overflow: hidden;
+        pointer-events: none;
+        z-index: 0;
     }
+
+    /* Particle background effect */
+    .particle {
+        position: absolute;
+        border-radius: 50%;
+        background: rgba(111, 145, 255, 0.1);
+        box-shadow: 0 0 8px 2px rgba(0, 102, 255, 0.2);
+        pointer-events: none;
+    }
+
     .admin-dashboard-content {
         position: relative;
         z-index: 1;
+        padding-bottom: 30px; /* Additional bottom padding for content */
     }
+
     .dashboard-header {
-        background: linear-gradient(90deg, #f8fafc 0%, #e3e9f0 100%);
-        color: #232526;
+        background: linear-gradient(90deg, rgba(16, 18, 35, 0.8) 0%, rgba(21, 25, 50, 0.8) 100%);
+        color: var(--text-primary);
         border-radius: 1rem;
-        box-shadow: 0 4px 24px rgba(0,0,0,0.12);
+        box-shadow: 0 8px 32px rgba(0, 0, 0, 0.25);
+        backdrop-filter: blur(10px);
+        -webkit-backdrop-filter: blur(10px);
+        border: 1px solid var(--card-border);
         padding: 2.5rem 2rem 2rem 2rem;
         margin-bottom: 2.5rem;
         text-align: center;
         position: relative;
         overflow: hidden;
+        transition: all 0.3s ease;
     }
-    .dashboard-header .fa {
-        font-size: 3rem;
-        opacity: 0.10;
-        position: absolute;
-        right: 2rem;
-        top: 1.5rem;
-        pointer-events: none;
-    }
+
+        .dashboard-header::before {
+            content: '';
+            position: absolute;
+            top: -50%;
+            left: -50%;
+            width: 200%;
+            height: 200%;
+            background: radial-gradient(circle, rgba(111, 145, 255, 0.1) 0%, transparent 70%);
+            opacity: 0.5;
+            animation: pulse 15s infinite;
+        }
+
+        .dashboard-header .fa {
+            font-size: 3rem;
+            opacity: 0.20;
+            position: absolute;
+            right: 2rem;
+            top: 1.5rem;
+            pointer-events: none;
+            color: var(--primary-color);
+            text-shadow: 0 0 15px var(--glow-color);
+            animation: float 6s ease-in-out infinite;
+        }
+
     .dashboard-card {
-        border: 1.5px solid #e3e9f0;
+        border: 1px solid var(--card-border);
         border-radius: 1rem;
-        box-shadow: 0 2px 16px rgba(0,0,0,0.10);
-        background: rgba(255,255,255,0.98);
-        transition: transform 0.15s, box-shadow 0.15s;
-        color: #232526;
+        box-shadow: 0 8px 32px rgba(0, 0, 0, 0.25);
+        background: var(--card-bg);
+        backdrop-filter: blur(10px);
+        -webkit-backdrop-filter: blur(10px);
+        transition: transform 0.3s, box-shadow 0.3s;
+        color: var(--text-primary);
+        position: relative;
+        overflow: hidden;
     }
-    .dashboard-card:hover {
-        transform: translateY(-4px) scale(1.03);
-        box-shadow: 0 8px 32px rgba(0,0,0,0.16);
-    }
+
+        .dashboard-card::before {
+            content: '';
+            position: absolute;
+            top: 0;
+            left: 0;
+            right: 0;
+            height: 1px;
+            background: linear-gradient(90deg, transparent, var(--primary-color), transparent);
+            opacity: 0;
+            transition: opacity 0.3s ease;
+        }
+
+        .dashboard-card:hover {
+            transform: translateY(-8px);
+            box-shadow: 0 15px 40px rgba(0, 102, 255, 0.25);
+        }
+
+            .dashboard-card:hover::before {
+                opacity: 1;
+            }
+
     .dashboard-section-title {
         font-size: 1.25rem;
         font-weight: 700;
-        margin-bottom: 1rem;
+        margin-bottom: 1.25rem;
         letter-spacing: 0.5px;
-        color: #007bff;
+        color: var(--primary-color);
+        position: relative;
+        display: inline-block;
     }
+
+        .dashboard-section-title::after {
+            content: '';
+            position: absolute;
+            bottom: -8px;
+            left: 0;
+            width: 100%;
+            height: 2px;
+            background: linear-gradient(90deg, var(--primary-color), transparent);
+        }
+
+        .dashboard-section-title i {
+            position: relative;
+            z-index: 1;
+            margin-right: 0.5rem;
+        }
+
+            .dashboard-section-title i::before {
+                content: '';
+                position: absolute;
+                width: 1.8rem;
+                height: 1.8rem;
+                border-radius: 50%;
+                background: rgba(0, 102, 255, 0.15);
+                top: 50%;
+                left: 50%;
+                transform: translate(-50%, -50%);
+                z-index: -1;
+            }
+
     .dashboard-link-card {
         display: flex;
         align-items: center;
         justify-content: center;
         flex-direction: column;
         border-radius: 1rem;
-        background: linear-gradient(135deg, #007bff 0%, #00c6ff 100%);
+        background: linear-gradient(135deg, rgba(0, 123, 255, 0.8) 0%, rgba(0, 198, 255, 0.8) 100%);
         color: #fff;
         font-size: 1.15rem;
         font-weight: 600;
         min-height: 140px;
-        box-shadow: 0 2px 16px rgba(0,0,0,0.10);
-        transition: background 0.2s, transform 0.15s, box-shadow 0.15s;
+        box-shadow: 0 8px 32px rgba(0, 0, 0, 0.25);
+        backdrop-filter: blur(4px);
+        -webkit-backdrop-filter: blur(4px);
+        border: 1px solid rgba(255, 255, 255, 0.1);
+        transition: all 0.3s cubic-bezier(0.25, 1, 0.5, 1);
         text-decoration: none;
         margin-bottom: 1rem;
+        position: relative;
+        overflow: hidden;
     }
-    .dashboard-link-card:hover {
-        background: linear-gradient(135deg, #0056b3 0%, #007bff 100%);
-        color: #ffd700;
-        transform: translateY(-4px) scale(1.04);
-        box-shadow: 0 8px 32px rgba(0,0,0,0.16);
-        text-decoration: none;
-    }
-    .dashboard-link-card .fa {
-        font-size: 2.2rem;
-        margin-bottom: 0.5rem;
-    }
+
+        .dashboard-link-card::before {
+            content: '';
+            position: absolute;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+            background: radial-gradient(circle at center, rgba(255, 255, 255, 0.15), transparent 70%);
+            opacity: 0;
+            transition: opacity 0.3s ease;
+        }
+
+        .dashboard-link-card:hover {
+            background: linear-gradient(135deg, rgba(0, 86, 179, 0.9) 0%, rgba(0, 123, 255, 0.9) 100%);
+            color: #fff;
+            transform: translateY(-8px) scale(1.03);
+            box-shadow: 0 15px 40px rgba(0, 102, 255, 0.35);
+            text-decoration: none;
+        }
+
+            .dashboard-link-card:hover::before {
+                opacity: 1;
+            }
+
+        .dashboard-link-card .fa {
+            font-size: 2.2rem;
+            margin-bottom: 0.75rem;
+            transition: transform 0.3s ease;
+            position: relative;
+        }
+
+        .dashboard-link-card:hover .fa {
+            transform: scale(1.15);
+            color: rgba(255, 255, 255, 1);
+            text-shadow: 0 0 10px rgba(255, 255, 255, 0.6);
+        }
+
     .dashboard-list-group .list-group-item {
         border: none;
-        border-radius: 0.5rem;
-        margin-bottom: 0.5rem;
-        background: #f8f9fa;
-        color: #232526;
-        transition: background 0.15s;
+        border-radius: 0.75rem;
+        margin-bottom: 0.75rem;
+        background: rgba(30, 35, 60, 0.5);
+        color: var(--text-primary);
+        transition: all 0.2s ease;
+        backdrop-filter: blur(4px);
+        -webkit-backdrop-filter: blur(4px);
+        border: 1px solid rgba(111, 145, 255, 0.1);
     }
-    .dashboard-list-group .list-group-item:hover {
-        background: #e3f0ff;
+
+        .dashboard-list-group .list-group-item:hover {
+            background: rgba(43, 49, 89, 0.7);
+            box-shadow: 0 5px 15px rgba(0, 0, 0, 0.2);
+            transform: translateX(5px);
+        }
+
+    .badge {
+        padding: 0.5em 0.75em;
+        border-radius: 0.5rem;
+        font-weight: 600;
+        letter-spacing: 0.3px;
+        transition: all 0.2s ease;
+    }
+
+        .badge.bg-success {
+            background-color: var(--success-color) !important;
+        }
+
+        .badge.bg-warning {
+            background-color: var(--warning-color) !important;
+        }
+
+        .badge.bg-danger {
+            background-color: var(--danger-color) !important;
+        }
+
+        .badge.bg-secondary {
+            background-color: rgba(160, 168, 201, 0.15) !important;
+            color: var(--text-secondary) !important;
+        }
+
+        .badge.bg-primary {
+            background-color: var(--primary-color) !important;
+        }
+
+    .btn-link {
+        color: var(--primary-color);
+        text-decoration: none;
+        transition: all 0.2s ease;
+    }
+
+        .btn-link:hover {
+            color: var(--secondary-color);
+            transform: translateX(3px);
+        }
+
+    .text-muted {
+        color: var(--text-secondary) !important;
+    }
+
+    
+
+    {
+        transform: translateY(0px);
+    }
+
+    50% {
+        transform: translateY(-10px);
+    }
+
+    100% {
+        transform: translateY(0px);
+    }
+
+    }
+
+    
+
+    {
+        transform: scale(1);
+        opacity: 0.5;
+    }
+
+    50% {
+        transform: scale(1.05);
+        opacity: 0.8;
+    }
+
+    100% {
+        transform: scale(1);
+        opacity: 0.5;
+    }
+
+    }
+
+    
+    {
+        box-shadow: 0 0 5px var(--glow-color);
+    }
+
+    50% {
+        box-shadow: 0 0 20px var(--glow-color);
+    }
+
+    100% {
+        box-shadow: 0 0 5px var(--glow-color);
+    }
+
     }
 </style>
 
 <script>
     document.body.classList.add('admin-dashboard-bg');
+
+    // Create particle background effect
+    document.addEventListener('DOMContentLoaded', function() {
+        const overlay = document.querySelector('.admin-dashboard-overlay');
+
+        // Create particles
+        for (let i = 0; i < 50; i++) {
+            const particle = document.createElement('div');
+            particle.classList.add('particle');
+
+            // Random size between 2-6px
+            const size = Math.random() * 4 + 2;
+            particle.style.width = `${size}px`;
+            particle.style.height = `${size}px`;
+
+            // Random position
+            particle.style.left = `${Math.random() * 100}%`;
+            particle.style.top = `${Math.random() * 100}%`;
+
+            // Random opacity
+            particle.style.opacity = Math.random() * 0.5 + 0.1;
+
+            // Random animation delay
+            const duration = Math.random() * 60 + 30; // 30-90s
+            particle.style.animation = `float ${duration}s ease-in-out infinite`;
+            particle.style.animationDelay = `${Math.random() * duration}s`;
+
+            overlay.appendChild(particle);
+        }
+
+        // Add hover sound effects for interactive elements
+        const cards = document.querySelectorAll('.dashboard-card, .dashboard-link-card');
+
+        cards.forEach(card => {
+            card.addEventListener('mouseenter', function() {
+                // If we want to add sound later, we can uncomment this
+                // playSound('hover');
+            });
+        });
+
+        // Make cards appear with a stagger effect
+        const allCards = document.querySelectorAll('.dashboard-card, .dashboard-link-card');
+        allCards.forEach((card, index) => {
+            card.style.opacity = '0';
+            card.style.transform = 'translateY(20px)';
+            card.style.transition = 'opacity 0.5s ease, transform 0.5s ease';
+
+            setTimeout(() => {
+                card.style.opacity = '1';
+                card.style.transform = 'translateY(0)';
+            }, 100 + (index * 100));
+        });
+    });
+
+    // Function to play a subtle sound effect (can be implemented if needed)
+    function playSound(type) {
+        // Sound effect code would go here if implemented
+        console.log(`Play ${type} sound`);
+    }
+
+    // Function to highlight cards when their data changes
+    function highlightCard(cardId) {
+        const card = document.getElementById(cardId);
+        if (card) {
+            card.style.animation = 'glow 1.5s ease-in-out';
+            setTimeout(() => {
+                card.style.animation = '';
+            }, 1500);
+        }
+    }
 </script>
+
 <div class="admin-dashboard-overlay"></div>
 <div class="admin-dashboard-content">
     <div class="dashboard-header position-relative mb-5 p-3 p-md-5">
@@ -106,11 +422,12 @@
         <p class="lead mb-0">Welcome, Admin! Manage your store with ease and style.</p>
         <i class="fa-solid fa-gauge-high"></i>
     </div>
+
     <div class="row g-4 mb-4">
         <div class="col-12 col-md-4">
-            <div class="card dashboard-card h-100 p-2 p-md-4">
+            <div class="card dashboard-card h-100 p-2 p-md-4" id="lowStockCard">
                 <div class="card-body">
-                    <div class="dashboard-section-title"><i class="fa fa-exclamation-triangle text-warning me-2"></i>Low Stock Alerts</div>
+                    <div class="dashboard-section-title"><i class="fa fa-exclamation-triangle text-warning"></i>Low Stock Alerts</div>
                     @if (lowStock != null && lowStock.Any())
                     {
                         <ul class="dashboard-list-group list-group">
@@ -130,10 +447,11 @@
                 </div>
             </div>
         </div>
+
         <div class="col-12 col-md-4">
-            <div class="card dashboard-card h-100 p-2 p-md-4">
+            <div class="card dashboard-card h-100 p-2 p-md-4" id="ordersCard">
                 <div class="card-body">
-                    <div class="dashboard-section-title"><i class="fa fa-clock text-info me-2"></i>Recent Orders</div>
+                    <div class="dashboard-section-title"><i class="fa fa-clock text-info"></i>Recent Orders</div>
                     @if (recentOrders != null && recentOrders.Any())
                     {
                         <ul class="dashboard-list-group list-group">
@@ -157,10 +475,11 @@
                 </div>
             </div>
         </div>
+
         <div class="col-12 col-md-4">
-            <div class="card dashboard-card h-100 p-2 p-md-4">
+            <div class="card dashboard-card h-100 p-2 p-md-4" id="reviewsCard">
                 <div class="card-body">
-                    <div class="dashboard-section-title"><i class="fa fa-star text-warning me-2"></i>Recent Reviews</div>
+                    <div class="dashboard-section-title"><i class="fa fa-star text-warning"></i>Recent Reviews</div>
                     @if (recentReviews != null && recentReviews.Any())
                     {
                         <ul class="dashboard-list-group list-group">
@@ -184,6 +503,7 @@
             </div>
         </div>
     </div>
+
     <div class="row g-4 mt-2">
         <div class="col-12 col-md-6 col-lg-3">
             <a href="/Admin/Products" class="dashboard-link-card p-3 p-md-4">
@@ -209,5 +529,11 @@
                 Manage Reviews
             </a>
         </div>
+        <div class="col-12 col-md-6 col-lg-3">
+            <a href="/Admin/Users" class="dashboard-link-card p-3 p-md-4">
+                <i class="fa fa-users"></i>
+                Manage Users
+            </a>
+        </div>
     </div>
-</div> 
+</div>

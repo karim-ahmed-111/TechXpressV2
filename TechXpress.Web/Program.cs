@@ -54,7 +54,7 @@ builder.Services.AddAuthentication(options =>
 // Add Swagger
 builder.Services.AddSwaggerGen(c =>
 {
-    c.SwaggerDoc("v1", new OpenApiInfo { Title = "TechXpress API", Version = "v1" });
+    c.SwaggerDoc("v1", new OpenApiInfo { Title = "TechXpress API", Version = "v1", Description = "Comprehensive API documentation for all TechXpress endpoints." });
     c.AddSecurityDefinition("Bearer", new OpenApiSecurityScheme
     {
         In = ParameterLocation.Header,
@@ -73,6 +73,14 @@ builder.Services.AddSwaggerGen(c =>
             new string[] {}
         }
     });
+    // Enable XML comments if available
+    var xmlFile = $"{System.Reflection.Assembly.GetExecutingAssembly().GetName().Name}.xml";
+    var xmlPath = System.IO.Path.Combine(AppContext.BaseDirectory, xmlFile);
+    if (System.IO.File.Exists(xmlPath))
+    {
+        c.IncludeXmlComments(xmlPath);
+    }
+    //c.EnableAnnotations();
 });
 
 builder.Services.AddControllersWithViews()

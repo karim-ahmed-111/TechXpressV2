@@ -61,14 +61,16 @@ namespace TechXpress.Web.Controllers
         }
 
         [HttpPost]
-        [Authorize]
-        public async Task<IActionResult> AddReview(int productId, int rating, string comment)
+        public async Task<IActionResult> AddReview(int productId, int rating, string comment, string? anonymousName)
         {
-            var userId = _userManager.GetUserId(User);
-            if (!await _reviewService.CanUserReviewProductAsync(userId, productId))
+            string? userId = null;
+            if (User.Identity.IsAuthenticated)
             {
-                TempData["Error"] = "You can only review products you have purchased.";
-                return RedirectToAction("Details", new { id = productId });
+                userId = _userManager.GetUserId(User);
+            }
+            else if (!string.IsNullOrWhiteSpace(anonymousName))
+            {
+                comment = $"[By: {anonymousName}] " + comment;
             }
             var review = new Review
             {

@@ -1,0 +1,67 @@
+@model TechXpress.Data.Entities.ApplicationUser
+@using Microsoft.AspNetCore.Identity
+@inject UserManager<TechXpress.Data.Entities.ApplicationUser> UserManager
+@{
+    ViewData["Title"] = "User Details";
+    var purchasedProducts = ViewBag.PurchasedProducts as List<TechXpress.Data.Entities.Product>;
+}
+
+<h2 class="mb-4 text-center">User Details</h2>
+<a href="@Url.Action("Users")" class="btn btn-link mb-3"><i class="fa fa-arrow-left"></i> Back to Users</a>
+<div class="card shadow-sm mb-4">
+    <div class="card-body">
+        <h4 class="card-title mb-3"><i class="fa fa-user-circle me-2"></i>@Model.FullName</h4>
+        <dl class="row mb-0">
+            <dt class="col-sm-3">Email</dt>
+            <dd class="col-sm-9">@Model.Email</dd>
+            <dt class="col-sm-3">Address</dt>
+            <dd class="col-sm-9">@Model.Address</dd>
+            <dt class="col-sm-3">Phone</dt>
+            <dd class="col-sm-9">@Model.PhoneNumber</dd>
+            <dt class="col-sm-3">Roles</dt>
+            <dd class="col-sm-9">
+                @foreach (var role in await UserManager.GetRolesAsync(Model))
+                {
+                    <span class="badge bg-info text-dark me-1">@role</span>
+                }
+            </dd>
+        </dl>
+    </div>
+</div>
+
+<h4 class="mb-3">Purchased Products</h4>
+@if (purchasedProducts != null && purchasedProducts.Any())
+{
+    <div class="table-responsive">
+        <table class="table table-hover align-middle shadow-sm rounded bg-white">
+            <thead class="table-primary">
+                <tr>
+                    <th>Image</th>
+                    <th>Name</th>
+                    <th>Price</th>
+                </tr>
+            </thead>
+            <tbody>
+            @foreach (var product in purchasedProducts)
+            {
+                <tr>
+                    <td style="width:80px"><img src="@product.ImageUrl" alt="@product.Name" class="img-thumbnail" style="max-width:70px;max-height:70px;"></td>
+                    <td class="fw-semibold">@product.Name</td>
+                    <td>$@product.Price</td>
+                </tr>
+            }
+            </tbody>
+        </table>
+    </div>
+}
+else
+{
+    <div class="alert alert-info">This user has not purchased any products yet.</div>
+}
+
+<style>
+    .card { border-radius: 12px; }
+    .table th, .table td { vertical-align: middle !important; }
+    .table { background: #fff; border-radius: 12px; overflow: hidden; }
+    .badge { font-size: 0.95em; }
+</style> 

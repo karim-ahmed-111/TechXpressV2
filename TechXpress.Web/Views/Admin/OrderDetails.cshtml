@@ -58,7 +58,14 @@
                             <select name="status" class="form-select form-select-lg">
                                 @foreach (var status in new[] { "Pending", "Paid", "Shipped", "Cancelled" })
                                 {
-                                    <option value="@status" selected="@(Model.Status == status ? "selected" : null)">@status</option>
+                                    if (Model.Status == status)
+                                    {
+                                        <option value="@status" selected>@status</option>
+                                    }
+                                    else
+                                    {
+                                        <option value="@status">@status</option>
+                                    }
                                 }
                             </select>
                         </div>

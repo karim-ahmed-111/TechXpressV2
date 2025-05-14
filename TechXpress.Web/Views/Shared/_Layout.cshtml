@@ -1,23 +1,86 @@
 ﻿<!DOCTYPE html>
-<html lang="en">
+<html lang="en" style="height: 100%;">
 <head>
     <meta charset="utf-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-    <title>@ViewData["Title"] - TechXpress.Web</title>
+    <title>@ViewData["Title"] - TechXpress</title>
     <script type="importmap"></script>
     <link rel="stylesheet" href="~/lib/bootstrap/dist/css/bootstrap.min.css" />
     <link rel="stylesheet" href="~/css/site.css" asp-append-version="true" />
     <link rel="stylesheet" href="~/TechXpress.Web.styles.css" asp-append-version="true" />
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/toastr.js/latest/toastr.min.css" />
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css" />
+    <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;500;600;700&display=swap" rel="stylesheet">
     <style>
+        :root {
+            --primary-color: #0066ff;
+            --secondary-color: #00c6ff;
+            --accent-color: #6e42e5;
+            --glow-color: rgba(0, 102, 255, 0.6);
+            --card-bg: rgba(21, 23, 34, 0.75);
+            --card-border: rgba(111, 145, 255, 0.2);
+            --text-primary: #fff;
+            --text-secondary: #fff;
+            --success-color: #00d0a0;
+            --warning-color: #ffc107;
+            --danger-color: #ff5a65;
+            --dark-bg: #0f1225;
+        }
+        
+        /* Page layout structure */
+        html, body {
+            min-height: 100%;
+            height: 100%;
+        }
+        
         body {
-            min-height: 100vh;
-            font-family: Arial, sans-serif;
+            display: flex;
+            flex-direction: column;
+            font-family: 'Poppins', sans-serif;
+            background: linear-gradient(135deg, #121527 0%, #1c1f36 100%);
+            color: #fff;
+            transition: all 0.3s ease;
+            position: relative;
         }
+        
+        /* Main content area that pushes footer down */
+        .content-wrapper {
+            flex: 1 0 auto;
+            display: flex;
+            flex-direction: column;
+            width: 100%;
+        }
+        
+        main[role="main"] {
+            flex-grow: 1;
+            padding-bottom: 2rem;
+            min-height: 300px; /* Minimum height to ensure spacing */
+        }
+        
+        html, body, .container, .card, .table, .navbar, .form-control, .form-select, .alert, .modal-content, .dropdown-menu, .list-group-item, .dropdown-item, .nav-link, .navbar-brand, .btn, .badge {
+            color: #fff !important;
+        }
+        
+        *, *::before, *::after {
+            color: #fff !important;
+            text-shadow: 0 1px 2px rgba(0,0,0,0.25);
+        }
+        
+        .text-muted, .text-secondary, .text-info, .text-dark, .text-body, .small, .form-text, .form-label, .form-check-label, .input-group-text {
+            color: #fff !important;
+            opacity: 0.95 !important;
+        }
+        
+        ::placeholder, .form-control::placeholder, .form-floating > .form-control::placeholder {
+            color: #fff !important;
+            opacity: 0.7 !important;
+        }
+        
         .navbar {
-            background: linear-gradient(90deg, #007bff 0%, #0056b3 100%);
+            background: linear-gradient(90deg, var(--primary-color) 0%, var(--secondary-color) 100%);
+            box-shadow: 0 4px 24px rgba(0,0,0,0.12);
         }
+        
         .navbar .nav-link, .navbar .navbar-brand {
             color: #fff !important;
             font-size: 1.08rem;
@@ -25,19 +88,23 @@
             letter-spacing: 0.5px;
             transition: color 0.2s;
         }
+        
         .navbar .nav-link:hover, .navbar .navbar-brand:hover {
             color: #ffd700 !important;
         }
+        
         .navbar .fa {
             font-size: 1.25em;
             margin-right: 0.5em;
             vertical-align: -0.1em;
         }
+        
         .navbar .badge {
             position: absolute;
             top: 0.2em;
             right: -0.7em;
         }
+        
         .container, main[role="main"] {
             background: none;
             border-radius: 0;
@@ -46,84 +113,251 @@
             margin-top: 0;
             margin-bottom: 0;
         }
-        .footer {
-            background: transparent;
-            color: #fff;
-            font-size: 1rem;
-            text-align: center;
-            padding: 1.5rem 0 0.5rem 0;
-            border: none;
+        
+        .card, .table {
+            background: var(--card-bg) !important;
+            color: var(--text-primary) !important;
+            border-radius: 1rem !important;
+            border: 1px solid var(--card-border) !important;
+            box-shadow: 0 8px 32px rgba(0,0,0,0.25) !important;
+        }
+        
+        .btn-primary, .btn-success, .btn-info, .btn-outline-primary {
+            background: var(--primary-color) !important;
+            border-color: var(--primary-color) !important;
+            color: #fff !important;
+            box-shadow: 0 2px 8px var(--glow-color);
+        }
+        
+        .btn-primary:hover, .btn-success:hover, .btn-info:hover, .btn-outline-primary:hover {
+            background: var(--accent-color) !important;
+            border-color: var(--accent-color) !important;
+            color: #fff !important;
+        }
+        
+        .badge.bg-info {
+            background: var(--secondary-color) !important;
+            color: #232526 !important;
+        }
+        
+        .badge.bg-primary {
+            background: var(--primary-color) !important;
+        }
+        
+        .badge.bg-success {
+            background: var(--success-color) !important;
+        }
+        
+        .badge.bg-warning {
+            background: var(--warning-color) !important;
+            color: #232526 !important;
+        }
+        
+        .badge.bg-danger {
+            background: var(--danger-color) !important;
+        }
+        
+        .form-control, .form-select {
+            background: #181a2b !important;
+            color: var(--text-primary) !important;
+            border: 1px solid var(--card-border) !important;
+        }
+        
+        .form-control:focus, .form-select:focus {
+            border-color: var(--primary-color) !important;
+            box-shadow: 0 0 0 0.2rem var(--glow-color) !important;
+        }
+        
+        .table th, .table td {
+            vertical-align: middle !important;
+        }
+        
+        .alert-info {
+            background: rgba(0, 198, 255, 0.12) !important;
+            color: var(--primary-color) !important;
+            border: 1px solid var(--secondary-color) !important;
+        }
+        
+        .alert-success {
+            background: rgba(0, 208, 160, 0.12) !important;
+            color: var(--success-color) !important;
+            border: 1px solid var(--success-color) !important;
+        }
+        
+        .alert-danger {
+            background: rgba(255, 90, 101, 0.12) !important;
+            color: var(--danger-color) !important;
+            border: 1px solid var(--danger-color) !important;
         }
     </style>
 </head>
 <body>
-    <header>
-        <nav class="navbar navbar-expand-lg navbar-dark sticky-top shadow">
-            <div class="container-fluid">
-                <a class="navbar-brand d-flex align-items-center" href="@(User.Identity.IsAuthenticated && User.IsInRole("Admin") ? "/Admin" : "/")">
-                    <i class="fa-solid fa-bolt me-2" style="font-size:1.5em;"></i> <span style="font-weight:700;letter-spacing:1px;">TechXpress</span>
-                </a>
-                <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#mainNavbar" aria-controls="mainNavbar" aria-expanded="false" aria-label="Toggle navigation">
-                    <span class="navbar-toggler-icon"></span>
-                </button>
-                <div class="collapse navbar-collapse" id="mainNavbar">
-                    <ul class="navbar-nav ms-auto mb-2 mb-lg-0 align-items-center">
-                        @if (User.Identity.IsAuthenticated && User.IsInRole("Admin"))
-                        {
-                            <li class="nav-item"><a class="nav-link" href="/Admin"><i class="fa-solid fa-gauge-high"></i> Admin</a></li>
-                            <li class="nav-item"><a class="nav-link" href="/Profile"><i class="fa-solid fa-user"></i> Profile</a></li>
-                            <li class="nav-item">
-                                <form asp-controller="Account" asp-action="Logout" method="post" class="d-inline">
-                                    <button type="submit" class="btn btn-link nav-link"><i class="fa-solid fa-right-from-bracket"></i> Logout</button>
-                                </form>
-                            </li>
-                        }
-                        else if (User.Identity.IsAuthenticated)
-                        {
-                            <li class="nav-item"><a class="nav-link" href="/Products"><i class="fa-solid fa-store"></i> Shop</a></li>
-                            <li class="nav-item position-relative">
-                                <a class="nav-link" href="/Cart">
-                                    <i class="fa-solid fa-cart-shopping"></i> Cart
-                                    <span id="cartCount" class="badge bg-warning text-dark ms-1" style="font-size:0.8em;display:none;">0</span>
-                                </a>
-                            </li>
-                            <li class="nav-item"><a class="nav-link" href="/Orders"><i class="fa-solid fa-box"></i> Orders</a></li>
-                            <li class="nav-item"><a class="nav-link" href="/Profile"><i class="fa-solid fa-user"></i> Profile</a></li>
-                            <li class="nav-item">
-                                <form asp-controller="Account" asp-action="Logout" method="post" class="d-inline">
-                                    <button type="submit" class="btn btn-link nav-link"><i class="fa-solid fa-right-from-bracket"></i> Logout</button>
-                                </form>
-                            </li>
-                        }
-                        else
-                        {
-                            <li class="nav-item"><a class="nav-link" href="/Products"><i class="fa-solid fa-store"></i> Shop</a></li>
-                            <li class="nav-item"><a class="nav-link" href="/Account/Login"><i class="fa-solid fa-sign-in-alt"></i> Login</a></li>
-                            <li class="nav-item"><a class="nav-link" href="/Account/Register"><i class="fa-solid fa-user-plus"></i> Register</a></li>
-                        }
-                    </ul>
+    <!-- Magical Loading Screen -->
+    <div id="loading-screen">
+        <div class="loading-content">
+            <div class="loading-logo">
+                <i class="fa-solid fa-bolt"></i>
+            </div>
+            <div class="loading-text">TechXpress</div>
+            <div class="loading-spinner">
+                <div class="spinner-orbit">
+                    <div class="spinner-circle"></div>
                 </div>
             </div>
-        </nav>
-    </header>
-    <div class="container pt-3">
-        <main role="main" class="pb-3">
-            @RenderBody()
-        </main>
+        </div>
+    </div>
+    
+    <!-- Animated magical background -->
+    <div class="magic-background">
+        <div class="stars"></div>
+        <div class="page-overlay" id="particles-background"></div>
+    </div>
+    
+    <div class="content-wrapper">
+        <header>
+            <nav class="navbar navbar-expand-lg navbar-dark sticky-top">
+                <div class="container">
+                    <a class="navbar-brand d-flex align-items-center" href="@(User.Identity.IsAuthenticated && User.IsInRole("Admin") ? "/Admin" : "/")">
+                        <div class="brand-icon me-2">
+                            <i class="fa-solid fa-bolt"></i>
+                        </div>
+                        <span class="brand-text">TechXpress</span>
+                    </a>
+                    <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#mainNavbar" aria-controls="mainNavbar" aria-expanded="false" aria-label="Toggle navigation">
+                        <span class="navbar-toggler-icon"></span>
+                    </button>
+                    <div class="collapse navbar-collapse" id="mainNavbar">
+                        <ul class="navbar-nav ms-auto mb-2 mb-lg-0 align-items-center">
+                            @if (User.Identity.IsAuthenticated && User.IsInRole("Admin"))
+                            {
+                                <li class="nav-item"><a class="nav-link" href="/Admin"><i class="fa-solid fa-gauge-high me-2"></i>Admin</a></li>
+                                <li class="nav-item"><a class="nav-link" href="/Profile"><i class="fa-solid fa-user me-2"></i>Profile</a></li>
+                                <li class="nav-item">
+                                    <form asp-controller="Account" asp-action="Logout" method="post" class="d-inline">
+                                        <button type="submit" class="btn btn-link nav-link"><i class="fa-solid fa-right-from-bracket me-2"></i>Logout</button>
+                                    </form>
+                                </li>
+                            }
+                            else if (User.Identity.IsAuthenticated)
+                            {
+                                <li class="nav-item"><a class="nav-link" href="/Products"><i class="fa-solid fa-store me-2"></i>Shop</a></li>
+                                <li class="nav-item position-relative">
+                                    <a class="nav-link" href="/Cart">
+                                        <i class="fa-solid fa-cart-shopping me-2"></i>Cart
+                                        <span id="cartCount" class="badge bg-accent ms-1" style="font-size:0.8em;display:none;">0</span>
+                                    </a>
+                                </li>
+                                <li class="nav-item"><a class="nav-link" href="/Orders"><i class="fa-solid fa-box me-2"></i>Orders</a></li>
+                                <li class="nav-item"><a class="nav-link" href="/Profile"><i class="fa-solid fa-user me-2"></i>Profile</a></li>
+                                <li class="nav-item">
+                                    <form asp-controller="Account" asp-action="Logout" method="post" class="d-inline">
+                                        <button type="submit" class="btn btn-link nav-link"><i class="fa-solid fa-right-from-bracket me-2"></i>Logout</button>
+                                    </form>
+                                </li>
+                            }
+                            else
+                            {
+                                <li class="nav-item"><a class="nav-link" href="/Products"><i class="fa-solid fa-store me-2"></i>Shop</a></li>
+                                <li class="nav-item"><a class="nav-link" href="/Account/Login"><i class="fa-solid fa-sign-in-alt me-2"></i>Login</a></li>
+                                <li class="nav-item"><a class="nav-link" href="/Account/Register"><i class="fa-solid fa-user-plus me-2"></i>Register</a></li>
+                            }
+                        </ul>
+                    </div>
+                </div>
+            </nav>
+        </header>
+
+        <div class="container pt-4">
+            <main role="main" class="pb-3">
+                @RenderBody()
+            </main>
+        </div>
     </div>
 
-    <footer class="border-top footer text-muted mt-5">
-        <div class="container">
-            &copy; 2025 - TechXpress.Web - <a asp-area="" asp-controller="Home" asp-action="Privacy">Privacy</a>
-        </div>
-    </footer>
+    <!-- Back to top button -->
+    <div id="back-to-top" class="btn-back-to-top">
+        <i class="fas fa-arrow-up"></i>
+    </div>
+
     <script src="~/lib/jquery/dist/jquery.min.js"></script>
     <script src="~/lib/bootstrap/dist/js/bootstrap.bundle.min.js"></script>
     <script src="~/js/site.js" asp-append-version="true"></script>
     <script src="https://cdnjs.cloudflare.com/ajax/libs/toastr.js/latest/toastr.min.js"></script>
-    <script src="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/js/all.min.js"></script>
+    
     <script>
-        $(function () {
+        // Loading screen behavior modification
+        document.addEventListener('DOMContentLoaded', function() {
+            const loadingScreen = document.getElementById('loading-screen');
+            
+            // Check if this is the first visit in this session
+            const isFirstVisit = !sessionStorage.getItem('visited');
+            
+            if (isFirstVisit) {
+                // First visit - show loading screen
+                sessionStorage.setItem('visited', 'true');
+                
+                // Hide loading screen after site loads
+                setTimeout(function() {
+                    if (loadingScreen) {
+                        loadingScreen.classList.add('loading-hide');
+                    }
+                }, 1500);
+            } else {
+                // Not first visit - immediately hide loading screen
+                if (loadingScreen) {
+                    loadingScreen.classList.add('loading-hide');
+                }
+            }
+            
+            // Only show loading screen for specific actions
+            // Monitor forms with specific actions
+            const forms = document.querySelectorAll('form');
+            forms.forEach(form => {
+                // Check if this is a login, register, or logout form
+                const isAuthForm = 
+                    form.getAttribute('action') && 
+                    (form.getAttribute('action').includes('Login') || 
+                     form.getAttribute('action').includes('Register') || 
+                     form.getAttribute('action').includes('Logout'));
+                
+                if (isAuthForm) {
+                    form.addEventListener('submit', function() {
+                        if (loadingScreen) {
+                            loadingScreen.classList.remove('loading-hide');
+                        }
+                    });
+                }
+            });
+            
+            // Back to top button functionality
+            const backToTopBtn = document.getElementById('back-to-top');
+            if (backToTopBtn) {
+                // Show button when scrolled down
+                window.addEventListener('scroll', function() {
+                    if (window.scrollY > 300) {
+                        backToTopBtn.classList.add('show');
+                    } else {
+                        backToTopBtn.classList.remove('show');
+                    }
+                });
+                
+                // Scroll to top on click
+                backToTopBtn.addEventListener('click', function() {
+                    window.scrollTo({
+                        top: 0,
+                        behavior: 'smooth'
+                    });
+                });
+            }
+            
+            // Configure toastr
+            toastr.options = {
+                closeButton: true,
+                progressBar: true,
+                positionClass: "toast-top-right",
+                timeOut: 3000
+            };
+            
             var success = '@TempData["Success"]';
             var error = '@TempData["Error"]';
             if (success) toastr.success(success);
@@ -147,6 +381,7 @@
             }
         });
     </script>
+    
     @await RenderSectionAsync("Scripts", required: false)
 </body>
 </html>

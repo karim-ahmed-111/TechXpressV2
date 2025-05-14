@@ -2,6 +2,7 @@
   "openapi": "3.0.4",
   "info": {
     "title": "TechXpress API",
+    "description": "Comprehensive API documentation for all TechXpress endpoints.",
     "version": "v1"
   },
   "paths": {

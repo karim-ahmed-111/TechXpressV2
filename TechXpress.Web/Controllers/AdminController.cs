@@ -3,6 +3,7 @@ using Microsoft.AspNetCore.Mvc;
 using Microsoft.AspNetCore.Mvc.Rendering;
 using TechXpress.Data.Entities;
 using TechXpress.Services;
+using Microsoft.AspNetCore.Identity;
 
 namespace TechXpress.Web.Controllers
 {
@@ -13,12 +14,14 @@ namespace TechXpress.Web.Controllers
         private readonly ICategoryService _categoryService;
         private readonly IOrderService _orderService;
         private readonly IReviewService _reviewService;
-        public AdminController(IProductService productService, ICategoryService categoryService, IOrderService orderService, IReviewService reviewService)
+        private readonly UserManager<ApplicationUser> _userManager;
+        public AdminController(IProductService productService, ICategoryService categoryService, IOrderService orderService, IReviewService reviewService, UserManager<ApplicationUser> userManager)
         {
             _productService = productService;
             _categoryService = categoryService;
             _orderService = orderService;
             _reviewService = reviewService;
+            _userManager = userManager;
         }
 
         public async Task<IActionResult> Index()
@@ -186,6 +189,34 @@ namespace TechXpress.Web.Controllers
             await _reviewService.DeleteReviewAsync(id);
             TempData["Success"] = "Review deleted.";
             return RedirectToAction("Reviews");
+        }
+
+        public async Task<IActionResult> Users()
+        {
+            var users = _userManager.Users.ToList();
+            return View(users);
+        }
+
+        public async Task<IActionResult> UserDetails(string id)
+        {
+            var user = await _userManager.FindByIdAsync(id);
+            if (user == null) return NotFound();
+            // Get products purchased by the user (from orders)
+            var orders = await _orderService.GetAllOrdersAsync();
+            var userOrders = orders.Where(o => o.UserId == id).ToList();
+            var purchasedProducts = userOrders.SelectMany(o => o.OrderDetails.Select(od => od.Product)).Distinct().ToList();
+            ViewBag.PurchasedProducts = purchasedProducts;
+            return View(user);
+        }
+
+        [HttpPost]
+        public async Task<IActionResult> DeleteUser(string id)
+        {
+            var user = await _userManager.FindByIdAsync(id);
+            if (user == null) return NotFound();
+            await _userManager.DeleteAsync(user);
+            TempData["Success"] = "User deleted.";
+            return RedirectToAction("Users");
         }
     }
 }

@@ -9,6 +9,10 @@
       "PackagePath": "staticwebassets\\css\\site.css"
     },
     {
+      "Id": "D:\\TechXpress Project\\TechXpressV2\\TechXpressV2\\TechXpress.Web\\wwwroot\\css\\theme-switcher.css",
+      "PackagePath": "staticwebassets\\css\\theme-switcher.css"
+    },
+    {
       "Id": "D:\\TechXpress Project\\TechXpressV2\\TechXpressV2\\TechXpress.Web\\wwwroot\\favicon.ico",
       "PackagePath": "staticwebassets\\favicon.ico"
     },

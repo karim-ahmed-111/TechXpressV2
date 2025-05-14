@@ -1,0 +1,233 @@
+/* Theme Switcher Component Styles */
+
+:root {
+    /* Light Theme Variables */
+    --light-primary-color: #4f46e5;
+    --light-secondary-color: #8b5cf6;
+    --light-accent-color: #ec4899;
+    --light-tertiary-color: #06b6d4;
+    --light-glow-color: rgba(79, 70, 229, 0.6);
+    --light-glow-accent: rgba(236, 72, 153, 0.5);
+    
+    /* Light Theme Background */
+    --light-dark-bg: #f9fafb;
+    --light-darker-bg: #f3f4f6;
+    --light-card-bg: rgba(255, 255, 255, 0.8);
+    --light-card-border: rgba(229, 231, 235, 0.5);
+    --light-card-hover-border: rgba(79, 70, 229, 0.3);
+    
+    /* Light Theme Text Colors */
+    --light-text-primary: #111827;
+    --light-text-secondary: #4b5563;
+    --light-text-muted: #6b7280;
+    
+    /* Light Theme Glass Effects */
+    --light-glass-bg: rgba(255, 255, 255, 0.7);
+    --light-glass-border: rgba(229, 231, 235, 0.3);
+    --light-glass-highlight: rgba(0, 0, 0, 0.03);
+}
+
+/* Theme Switcher Container */
+.theme-switcher {
+    position: fixed;
+    bottom: 30px;
+    left: 30px;
+    z-index: 1000;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+}
+
+/* Theme Toggle Button */
+.theme-toggle {
+    width: 50px;
+    height: 50px;
+    border-radius: 50%;
+    background: linear-gradient(135deg, var(--primary-color), var(--accent-color));
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    color: white;
+    cursor: pointer;
+    box-shadow: 0 5px 15px rgba(0, 0, 0, 0.2);
+    position: relative;
+    transition: all 0.3s ease;
+    border: none;
+    outline: none;
+}
+
+.theme-toggle:hover {
+    transform: scale(1.1);
+    box-shadow: 0 8px 20px rgba(0, 0, 0, 0.3);
+}
+
+.theme-toggle i {
+    font-size: 1.3rem;
+    transition: transform 0.5s ease;
+}
+
+/* Day/Night Icons */
+.theme-toggle .fa-sun {
+    position: absolute;
+    opacity: 0;
+    transform: scale(0.5);
+}
+
+.theme-toggle .fa-moon {
+    position: absolute;
+    opacity: 1;
+    transform: scale(1);
+}
+
+/* Light Theme Styles */
+body.light-theme {
+    background: radial-gradient(ellipse at top, var(--light-dark-bg), var(--light-darker-bg) 80%);
+    color: var(--light-text-primary);
+}
+
+/* When Light Theme is Active */
+body.light-theme .theme-toggle .fa-sun {
+    opacity: 1;
+    transform: scale(1);
+}
+
+body.light-theme .theme-toggle .fa-moon {
+    opacity: 0;
+    transform: scale(0.5);
+}
+
+/* Card Styling for Light Theme */
+body.light-theme .card {
+    background: var(--light-card-bg);
+    border: 1px solid var(--light-card-border);
+    box-shadow: 0 8px 20px rgba(0, 0, 0, 0.05);
+}
+
+/* Button Styling for Light Theme */
+body.light-theme .btn-primary {
+    background: linear-gradient(135deg, var(--light-primary-color), var(--light-secondary-color));
+    box-shadow: 0 4px 15px var(--light-glow-color);
+}
+
+body.light-theme .btn-accent {
+    background: linear-gradient(135deg, var(--light-accent-color), #c026d3);
+    box-shadow: 0 4px 15px var(--light-glow-accent);
+}
+
+/* Text Colors for Light Theme */
+body.light-theme h1, body.light-theme h2, body.light-theme h3, 
+body.light-theme h4, body.light-theme h5, body.light-theme h6 {
+    color: var(--light-text-primary);
+}
+
+body.light-theme .text-secondary {
+    color: var(--light-text-secondary) !important;
+}
+
+/* Form Controls for Light Theme */
+body.light-theme .form-control, body.light-theme .form-select {
+    background: rgba(255, 255, 255, 0.8) !important;
+    border: 1px solid var(--light-card-border);
+    color: var(--light-text-primary) !important;
+}
+
+body.light-theme .form-control::placeholder {
+    color: var(--light-text-muted);
+}
+
+/* Navbar for Light Theme */
+body.light-theme .navbar {
+    background: linear-gradient(90deg, rgba(255, 255, 255, 0.9) 0%, rgba(249, 250, 251, 0.9) 100%);
+    border-bottom: 1px solid var(--light-card-border);
+}
+
+body.light-theme .navbar-nav .nav-link {
+    color: var(--light-text-primary) !important;
+}
+
+body.light-theme .navbar-nav .nav-link:hover,
+body.light-theme .navbar-nav .nav-link.active {
+    color: var(--light-primary-color) !important;
+}
+
+/* Footer for Light Theme */
+body.light-theme .footer {
+    background: linear-gradient(180deg, rgba(249, 250, 251, 0.1) 0%, rgba(249, 250, 251, 0.9) 100%);
+    border-top: 1px solid var(--light-card-border);
+    color: var(--light-text-secondary);
+}
+
+/* Tables for Light Theme */
+body.light-theme .table {
+    color: var(--light-text-primary);
+}
+
+body.light-theme .table th {
+    background: rgba(249, 250, 251, 0.9);
+    color: var(--light-primary-color);
+}
+
+/* Product Cards for Light Theme */
+body.light-theme .product-card .product-price {
+    background: linear-gradient(135deg, var(--light-primary-color), var(--light-accent-color));
+    -webkit-background-clip: text;
+    background-clip: text;
+}
+
+/* Badge Styling for Light Theme */
+body.light-theme .badge.bg-primary {
+    background: linear-gradient(135deg, var(--light-primary-color), var(--light-secondary-color)) !important;
+}
+
+body.light-theme .badge.bg-accent {
+    background: linear-gradient(135deg, var(--light-accent-color), #c026d3) !important;
+}
+
+/* Loading Screen for Light Theme */
+body.light-theme #loading-screen {
+    background: linear-gradient(135deg, var(--light-dark-bg), var(--light-darker-bg));
+}
+
+/* Animation for Theme Toggle */
+.theme-toggle::before {
+    content: '';
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    border-radius: 50%;
+    background: linear-gradient(135deg, var(--primary-color), var(--accent-color));
+    z-index: -1;
+    transition: opacity 0.3s ease;
+    opacity: 1;
+}
+
+.theme-toggle::after {
+    content: '';
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    border-radius: 50%;
+    background: linear-gradient(135deg, var(--light-primary-color), var(--light-accent-color));
+    z-index: -2;
+    opacity: 0;
+    transition: opacity 0.3s ease;
+}
+
+body.light-theme .theme-toggle::before {
+    opacity: 0;
+}
+
+body.light-theme .theme-toggle::after {
+    opacity: 1;
+}
+
+/* Theme Transition Animation */
+body, body * {
+    transition-property: background-color, border-color, color, box-shadow;
+    transition-duration: 0.5s;
+    transition-timing-function: ease;
+} 

@@ -3,6 +3,30 @@
   "WorkspaceRootPath": "D:\\TechXpress Project\\TechXpressV2\\TechXpressV2\\",
   "Documents": [
     {
+      "AbsoluteMoniker": "D:0:0:{11295571-59FE-425E-9379-712CF0B7AA37}|TechXpress.Web\\TechXpress.Web.csproj|d:\\techxpress project\\techxpressv2\\techxpressv2\\techxpress.web\\views\\shared\\_layout.cshtml||{40D31677-CBC0-4297-A9EF-89D907823A98}",
+      "RelativeMoniker": "D:0:0:{11295571-59FE-425E-9379-712CF0B7AA37}|TechXpress.Web\\TechXpress.Web.csproj|solutionrelative:techxpress.web\\views\\shared\\_layout.cshtml||{40D31677-CBC0-4297-A9EF-89D907823A98}"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{11295571-59FE-425E-9379-712CF0B7AA37}|TechXpress.Web\\TechXpress.Web.csproj|d:\\techxpress project\\techxpressv2\\techxpressv2\\techxpress.web\\views\\products\\index.cshtml||{40D31677-CBC0-4297-A9EF-89D907823A98}",
+      "RelativeMoniker": "D:0:0:{11295571-59FE-425E-9379-712CF0B7AA37}|TechXpress.Web\\TechXpress.Web.csproj|solutionrelative:techxpress.web\\views\\products\\index.cshtml||{40D31677-CBC0-4297-A9EF-89D907823A98}"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{11295571-59FE-425E-9379-712CF0B7AA37}|TechXpress.Web\\TechXpress.Web.csproj|d:\\techxpress project\\techxpressv2\\techxpressv2\\techxpress.web\\views\\home\\index.cshtml||{40D31677-CBC0-4297-A9EF-89D907823A98}",
+      "RelativeMoniker": "D:0:0:{11295571-59FE-425E-9379-712CF0B7AA37}|TechXpress.Web\\TechXpress.Web.csproj|solutionrelative:techxpress.web\\views\\home\\index.cshtml||{40D31677-CBC0-4297-A9EF-89D907823A98}"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{11295571-59FE-425E-9379-712CF0B7AA37}|TechXpress.Web\\TechXpress.Web.csproj|d:\\techxpress project\\techxpressv2\\techxpressv2\\techxpress.web\\views\\cart\\index.cshtml||{40D31677-CBC0-4297-A9EF-89D907823A98}",
+      "RelativeMoniker": "D:0:0:{11295571-59FE-425E-9379-712CF0B7AA37}|TechXpress.Web\\TechXpress.Web.csproj|solutionrelative:techxpress.web\\views\\cart\\index.cshtml||{40D31677-CBC0-4297-A9EF-89D907823A98}"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{11295571-59FE-425E-9379-712CF0B7AA37}|TechXpress.Web\\TechXpress.Web.csproj|d:\\techxpress project\\techxpressv2\\techxpressv2\\techxpress.web\\program.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
+      "RelativeMoniker": "D:0:0:{11295571-59FE-425E-9379-712CF0B7AA37}|TechXpress.Web\\TechXpress.Web.csproj|solutionrelative:techxpress.web\\program.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{11295571-59FE-425E-9379-712CF0B7AA37}|TechXpress.Web\\TechXpress.Web.csproj|d:\\techxpress project\\techxpressv2\\techxpressv2\\techxpress.web\\views\\admin\\index.cshtml||{40D31677-CBC0-4297-A9EF-89D907823A98}",
+      "RelativeMoniker": "D:0:0:{11295571-59FE-425E-9379-712CF0B7AA37}|TechXpress.Web\\TechXpress.Web.csproj|solutionrelative:techxpress.web\\views\\admin\\index.cshtml||{40D31677-CBC0-4297-A9EF-89D907823A98}"
+    },
+    {
       "AbsoluteMoniker": "D:0:0:{91342B6B-1096-49D5-B482-EAD6281F753B}|TechXpress.Data\\TechXpress.Data.csproj|d:\\techxpress project\\techxpressv2\\techxpressv2\\techxpress.data\\entities\\review.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
       "RelativeMoniker": "D:0:0:{91342B6B-1096-49D5-B482-EAD6281F753B}|TechXpress.Data\\TechXpress.Data.csproj|solutionrelative:techxpress.data\\entities\\review.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
     },
@@ -15,28 +39,12 @@
       "RelativeMoniker": "D:0:0:{91342B6B-1096-49D5-B482-EAD6281F753B}|TechXpress.Data\\TechXpress.Data.csproj|solutionrelative:techxpress.data\\entities\\applicationuser.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
     },
     {
-      "AbsoluteMoniker": "D:0:0:{11295571-59FE-425E-9379-712CF0B7AA37}|TechXpress.Web\\TechXpress.Web.csproj|d:\\techxpress project\\techxpressv2\\techxpressv2\\techxpress.web\\views\\admin\\index.cshtml||{40D31677-CBC0-4297-A9EF-89D907823A98}",
-      "RelativeMoniker": "D:0:0:{11295571-59FE-425E-9379-712CF0B7AA37}|TechXpress.Web\\TechXpress.Web.csproj|solutionrelative:techxpress.web\\views\\admin\\index.cshtml||{40D31677-CBC0-4297-A9EF-89D907823A98}"
-    },
-    {
-      "AbsoluteMoniker": "D:0:0:{11295571-59FE-425E-9379-712CF0B7AA37}|TechXpress.Web\\TechXpress.Web.csproj|d:\\techxpress project\\techxpressv2\\techxpressv2\\techxpress.web\\views\\products\\index.cshtml||{40D31677-CBC0-4297-A9EF-89D907823A98}",
-      "RelativeMoniker": "D:0:0:{11295571-59FE-425E-9379-712CF0B7AA37}|TechXpress.Web\\TechXpress.Web.csproj|solutionrelative:techxpress.web\\views\\products\\index.cshtml||{40D31677-CBC0-4297-A9EF-89D907823A98}"
-    },
-    {
       "AbsoluteMoniker": "D:0:0:{91342B6B-1096-49D5-B482-EAD6281F753B}|TechXpress.Data\\TechXpress.Data.csproj|d:\\techxpress project\\techxpressv2\\techxpressv2\\techxpress.data\\seeddata\\dbinitializer.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
       "RelativeMoniker": "D:0:0:{91342B6B-1096-49D5-B482-EAD6281F753B}|TechXpress.Data\\TechXpress.Data.csproj|solutionrelative:techxpress.data\\seeddata\\dbinitializer.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
     },
     {
       "AbsoluteMoniker": "D:0:0:{11295571-59FE-425E-9379-712CF0B7AA37}|TechXpress.Web\\TechXpress.Web.csproj|d:\\techxpress project\\techxpressv2\\techxpressv2\\techxpress.web\\appsettings.json||{90A6B3A7-C1A3-4009-A288-E2FF89E96FA0}",
       "RelativeMoniker": "D:0:0:{11295571-59FE-425E-9379-712CF0B7AA37}|TechXpress.Web\\TechXpress.Web.csproj|solutionrelative:techxpress.web\\appsettings.json||{90A6B3A7-C1A3-4009-A288-E2FF89E96FA0}"
-    },
-    {
-      "AbsoluteMoniker": "D:0:0:{11295571-59FE-425E-9379-712CF0B7AA37}|TechXpress.Web\\TechXpress.Web.csproj|d:\\techxpress project\\techxpressv2\\techxpressv2\\techxpress.web\\views\\shared\\_layout.cshtml||{40D31677-CBC0-4297-A9EF-89D907823A98}",
-      "RelativeMoniker": "D:0:0:{11295571-59FE-425E-9379-712CF0B7AA37}|TechXpress.Web\\TechXpress.Web.csproj|solutionrelative:techxpress.web\\views\\shared\\_layout.cshtml||{40D31677-CBC0-4297-A9EF-89D907823A98}"
-    },
-    {
-      "AbsoluteMoniker": "D:0:0:{11295571-59FE-425E-9379-712CF0B7AA37}|TechXpress.Web\\TechXpress.Web.csproj|d:\\techxpress project\\techxpressv2\\techxpressv2\\techxpress.web\\views\\home\\index.cshtml||{40D31677-CBC0-4297-A9EF-89D907823A98}",
-      "RelativeMoniker": "D:0:0:{11295571-59FE-425E-9379-712CF0B7AA37}|TechXpress.Web\\TechXpress.Web.csproj|solutionrelative:techxpress.web\\views\\home\\index.cshtml||{40D31677-CBC0-4297-A9EF-89D907823A98}"
     },
     {
       "AbsoluteMoniker": "D:0:0:{11295571-59FE-425E-9379-712CF0B7AA37}|TechXpress.Web\\TechXpress.Web.csproj|d:\\techxpress project\\techxpressv2\\techxpressv2\\techxpress.web\\controllers\\homecontroller.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
@@ -139,10 +147,6 @@
       "RelativeMoniker": "D:0:0:{91342B6B-1096-49D5-B482-EAD6281F753B}|TechXpress.Data\\TechXpress.Data.csproj|solutionrelative:techxpress.data\\entities\\orderdetail.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
     },
     {
-      "AbsoluteMoniker": "D:0:0:{11295571-59FE-425E-9379-712CF0B7AA37}|TechXpress.Web\\TechXpress.Web.csproj|d:\\techxpress project\\techxpressv2\\techxpressv2\\techxpress.web\\program.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
-      "RelativeMoniker": "D:0:0:{11295571-59FE-425E-9379-712CF0B7AA37}|TechXpress.Web\\TechXpress.Web.csproj|solutionrelative:techxpress.web\\program.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
-    },
-    {
       "AbsoluteMoniker": "D:0:0:{11295571-59FE-425E-9379-712CF0B7AA37}|TechXpress.Web\\TechXpress.Web.csproj|d:\\techxpress project\\techxpressv2\\techxpressv2\\techxpress.web\\views\\admin\\orderdetails.cshtml||{40D31677-CBC0-4297-A9EF-89D907823A98}",
       "RelativeMoniker": "D:0:0:{11295571-59FE-425E-9379-712CF0B7AA37}|TechXpress.Web\\TechXpress.Web.csproj|solutionrelative:techxpress.web\\views\\admin\\orderdetails.cshtml||{40D31677-CBC0-4297-A9EF-89D907823A98}"
     },
@@ -190,7 +194,7 @@
       "DocumentGroups": [
         {
           "DockedWidth": 200,
-          "SelectedChildIndex": 11,
+          "SelectedChildIndex": 12,
           "Children": [
             {
               "$type": "Bookmark",
@@ -202,43 +206,20 @@
             },
             {
               "$type": "Document",
-              "DocumentIndex": 13,
-              "Title": "ProductService.cs",
-              "DocumentMoniker": "D:\\TechXpress Project\\TechXpressV2\\TechXpressV2\\TechXpress.Services\\ProductService.cs",
-              "RelativeDocumentMoniker": "TechXpress.Services\\ProductService.cs",
-              "ToolTip": "D:\\TechXpress Project\\TechXpressV2\\TechXpressV2\\TechXpress.Services\\ProductService.cs",
-              "RelativeToolTip": "TechXpress.Services\\ProductService.cs",
-              "ViewState": "AgIAAA8AAAAAAAAAAAAIwDAAAAABAAAAAAAAAA==",
-              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
-              "WhenOpened": "2025-05-13T09:54:39.697Z"
-            },
-            {
-              "$type": "Document",
-              "DocumentIndex": 8,
+              "DocumentIndex": 3,
               "Title": "Index.cshtml",
-              "DocumentMoniker": "D:\\TechXpress Project\\TechXpressV2\\TechXpressV2\\TechXpress.Web\\Views\\Home\\Index.cshtml",
-              "RelativeDocumentMoniker": "TechXpress.Web\\Views\\Home\\Index.cshtml",
-              "ToolTip": "D:\\TechXpress Project\\TechXpressV2\\TechXpressV2\\TechXpress.Web\\Views\\Home\\Index.cshtml",
-              "RelativeToolTip": "TechXpress.Web\\Views\\Home\\Index.cshtml",
-              "ViewState": "AgIAADgAAAAAAAAAAAAAAKIAAAAAAAAAAAAAAA==",
+              "DocumentMoniker": "D:\\TechXpress Project\\TechXpressV2\\TechXpressV2\\TechXpress.Web\\Views\\Cart\\Index.cshtml",
+              "RelativeDocumentMoniker": "TechXpress.Web\\Views\\Cart\\Index.cshtml",
+              "ToolTip": "D:\\TechXpress Project\\TechXpressV2\\TechXpressV2\\TechXpress.Web\\Views\\Cart\\Index.cshtml",
+              "RelativeToolTip": "TechXpress.Web\\Views\\Cart\\Index.cshtml",
+              "ViewState": "AgIAAIwCAAAAAAAAAIAwwKwCAAAsAAAAAAAAAA==",
               "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000759|",
-              "WhenOpened": "2025-05-11T10:45:35.719Z"
+              "WhenOpened": "2025-05-14T17:41:06.033Z",
+              "EditorCaption": ""
             },
             {
               "$type": "Document",
-              "DocumentIndex": 6,
-              "Title": "appsettings.json",
-              "DocumentMoniker": "D:\\TechXpress Project\\TechXpressV2\\TechXpressV2\\TechXpress.Web\\appsettings.json",
-              "RelativeDocumentMoniker": "TechXpress.Web\\appsettings.json",
-              "ToolTip": "D:\\TechXpress Project\\TechXpressV2\\TechXpressV2\\TechXpress.Web\\appsettings.json",
-              "RelativeToolTip": "TechXpress.Web\\appsettings.json",
-              "ViewState": "AgIAAAAAAAAAAAAAAAAAABAAAAAAAAAAAAAAAA==",
-              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.001642|",
-              "WhenOpened": "2025-05-11T10:30:41.488Z"
-            },
-            {
-              "$type": "Document",
-              "DocumentIndex": 9,
+              "DocumentIndex": 11,
               "Title": "HomeController.cs",
               "DocumentMoniker": "D:\\TechXpress Project\\TechXpressV2\\TechXpressV2\\TechXpress.Web\\Controllers\\HomeController.cs",
               "RelativeDocumentMoniker": "TechXpress.Web\\Controllers\\HomeController.cs",
@@ -250,7 +231,7 @@
             },
             {
               "$type": "Document",
-              "DocumentIndex": 10,
+              "DocumentIndex": 12,
               "Title": "ProductsController.cs",
               "DocumentMoniker": "D:\\TechXpress Project\\TechXpressV2\\TechXpressV2\\TechXpress.Web\\Controllers\\ProductsController.cs",
               "RelativeDocumentMoniker": "TechXpress.Web\\Controllers\\ProductsController.cs",
@@ -262,19 +243,20 @@
             },
             {
               "$type": "Document",
-              "DocumentIndex": 4,
+              "DocumentIndex": 1,
               "Title": "Index.cshtml",
               "DocumentMoniker": "D:\\TechXpress Project\\TechXpressV2\\TechXpressV2\\TechXpress.Web\\Views\\Products\\Index.cshtml",
               "RelativeDocumentMoniker": "TechXpress.Web\\Views\\Products\\Index.cshtml",
               "ToolTip": "D:\\TechXpress Project\\TechXpressV2\\TechXpressV2\\TechXpress.Web\\Views\\Products\\Index.cshtml",
               "RelativeToolTip": "TechXpress.Web\\Views\\Products\\Index.cshtml",
-              "ViewState": "AgIAABMAAAAAAAAAAAAgwFsAAAASAAAAAAAAAA==",
+              "ViewState": "AgIAABIAAAAAAAAAAAAgwCQAAAA9AAAAAAAAAA==",
               "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000759|",
-              "WhenOpened": "2025-05-13T10:04:27.845Z"
+              "WhenOpened": "2025-05-13T10:04:27.845Z",
+              "EditorCaption": ""
             },
             {
               "$type": "Document",
-              "DocumentIndex": 5,
+              "DocumentIndex": 9,
               "Title": "DbInitializer.cs",
               "DocumentMoniker": "D:\\TechXpress Project\\TechXpressV2\\TechXpressV2\\TechXpress.Data\\SeedData\\DbInitializer.cs",
               "RelativeDocumentMoniker": "TechXpress.Data\\SeedData\\DbInitializer.cs",
@@ -286,20 +268,19 @@
             },
             {
               "$type": "Document",
-              "DocumentIndex": 3,
+              "DocumentIndex": 5,
               "Title": "Index.cshtml",
               "DocumentMoniker": "D:\\TechXpress Project\\TechXpressV2\\TechXpressV2\\TechXpress.Web\\Views\\Admin\\Index.cshtml",
               "RelativeDocumentMoniker": "TechXpress.Web\\Views\\Admin\\Index.cshtml",
               "ToolTip": "D:\\TechXpress Project\\TechXpressV2\\TechXpressV2\\TechXpress.Web\\Views\\Admin\\Index.cshtml",
               "RelativeToolTip": "TechXpress.Web\\Views\\Admin\\Index.cshtml",
-              "ViewState": "AgIAAAAAAAAAAAAAAAAAABAAAAAeAAAAAAAAAA==",
+              "ViewState": "AgIAABgBAAAAAAAAAAAAACgBAAAJAAAAAAAAAA==",
               "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000759|",
-              "WhenOpened": "2025-05-11T20:54:02.86Z",
-              "EditorCaption": ""
+              "WhenOpened": "2025-05-11T20:54:02.86Z"
             },
             {
               "$type": "Document",
-              "DocumentIndex": 2,
+              "DocumentIndex": 8,
               "Title": "ApplicationUser.cs",
               "DocumentMoniker": "D:\\TechXpress Project\\TechXpressV2\\TechXpressV2\\TechXpress.Data\\Entities\\ApplicationUser.cs",
               "RelativeDocumentMoniker": "TechXpress.Data\\Entities\\ApplicationUser.cs",
@@ -307,12 +288,37 @@
               "RelativeToolTip": "TechXpress.Data\\Entities\\ApplicationUser.cs",
               "ViewState": "AgIAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAA==",
               "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
-              "WhenOpened": "2025-05-13T09:54:20.309Z",
+              "WhenOpened": "2025-05-13T09:54:20.309Z"
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 4,
+              "Title": "Program.cs",
+              "DocumentMoniker": "D:\\TechXpress Project\\TechXpressV2\\TechXpressV2\\TechXpress.Web\\Program.cs",
+              "RelativeDocumentMoniker": "TechXpress.Web\\Program.cs",
+              "ToolTip": "D:\\TechXpress Project\\TechXpressV2\\TechXpressV2\\TechXpress.Web\\Program.cs",
+              "RelativeToolTip": "TechXpress.Web\\Program.cs",
+              "ViewState": "AgIAAEMAAAAAAAAAAAAxwFwAAAAAAAAAAAAAAA==",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
+              "WhenOpened": "2025-05-11T10:31:28.912Z",
               "EditorCaption": ""
             },
             {
               "$type": "Document",
-              "DocumentIndex": 0,
+              "DocumentIndex": 2,
+              "Title": "Index.cshtml",
+              "DocumentMoniker": "D:\\TechXpress Project\\TechXpressV2\\TechXpressV2\\TechXpress.Web\\Views\\Home\\Index.cshtml",
+              "RelativeDocumentMoniker": "TechXpress.Web\\Views\\Home\\Index.cshtml",
+              "ToolTip": "D:\\TechXpress Project\\TechXpressV2\\TechXpressV2\\TechXpress.Web\\Views\\Home\\Index.cshtml",
+              "RelativeToolTip": "TechXpress.Web\\Views\\Home\\Index.cshtml",
+              "ViewState": "AgIAAJ0BAAAAAAAAAAAgwL4BAAAFAAAAAAAAAA==",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000759|",
+              "WhenOpened": "2025-05-11T10:45:35.719Z",
+              "EditorCaption": ""
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 6,
               "Title": "Review.cs",
               "DocumentMoniker": "D:\\TechXpress Project\\TechXpressV2\\TechXpressV2\\TechXpress.Data\\Entities\\Review.cs",
               "RelativeDocumentMoniker": "TechXpress.Data\\Entities\\Review.cs",
@@ -320,12 +326,48 @@
               "RelativeToolTip": "TechXpress.Data\\Entities\\Review.cs",
               "ViewState": "AgIAAAAAAAAAAAAAAAAAAAwAAAA7AAAAAAAAAA==",
               "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
-              "WhenOpened": "2025-05-13T09:54:11.62Z",
+              "WhenOpened": "2025-05-13T09:54:11.62Z"
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 0,
+              "Title": "_Layout.cshtml",
+              "DocumentMoniker": "D:\\TechXpress Project\\TechXpressV2\\TechXpressV2\\TechXpress.Web\\Views\\Shared\\_Layout.cshtml",
+              "RelativeDocumentMoniker": "TechXpress.Web\\Views\\Shared\\_Layout.cshtml",
+              "ToolTip": "D:\\TechXpress Project\\TechXpressV2\\TechXpressV2\\TechXpress.Web\\Views\\Shared\\_Layout.cshtml",
+              "RelativeToolTip": "TechXpress.Web\\Views\\Shared\\_Layout.cshtml",
+              "ViewState": "AgIAAB4BAAAAAAAAAAAgwDABAAAJAAAAAAAAAA==",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000759|",
+              "WhenOpened": "2025-05-13T12:02:02.94Z",
               "EditorCaption": ""
             },
             {
               "$type": "Document",
-              "DocumentIndex": 14,
+              "DocumentIndex": 10,
+              "Title": "appsettings.json",
+              "DocumentMoniker": "D:\\TechXpress Project\\TechXpressV2\\TechXpressV2\\TechXpress.Web\\appsettings.json",
+              "RelativeDocumentMoniker": "TechXpress.Web\\appsettings.json",
+              "ToolTip": "D:\\TechXpress Project\\TechXpressV2\\TechXpressV2\\TechXpress.Web\\appsettings.json",
+              "RelativeToolTip": "TechXpress.Web\\appsettings.json",
+              "ViewState": "AgIAAAAAAAAAAAAAAAAAABAAAAAAAAAAAAAAAA==",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.001642|",
+              "WhenOpened": "2025-05-11T10:30:41.488Z"
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 15,
+              "Title": "ProductService.cs",
+              "DocumentMoniker": "D:\\TechXpress Project\\TechXpressV2\\TechXpressV2\\TechXpress.Services\\ProductService.cs",
+              "RelativeDocumentMoniker": "TechXpress.Services\\ProductService.cs",
+              "ToolTip": "D:\\TechXpress Project\\TechXpressV2\\TechXpressV2\\TechXpress.Services\\ProductService.cs",
+              "RelativeToolTip": "TechXpress.Services\\ProductService.cs",
+              "ViewState": "AgIAAA8AAAAAAAAAAAAIwDAAAAABAAAAAAAAAA==",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
+              "WhenOpened": "2025-05-13T09:54:39.697Z"
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 16,
               "Title": "UnitOfWork.cs",
               "DocumentMoniker": "D:\\TechXpress Project\\TechXpressV2\\TechXpressV2\\TechXpress.Data\\Repositories\\UnitOfWork.cs",
               "RelativeDocumentMoniker": "TechXpress.Data\\Repositories\\UnitOfWork.cs",
@@ -337,7 +379,7 @@
             },
             {
               "$type": "Document",
-              "DocumentIndex": 1,
+              "DocumentIndex": 7,
               "Title": "Cart.cs",
               "DocumentMoniker": "D:\\TechXpress Project\\TechXpressV2\\TechXpressV2\\TechXpress.Data\\Entities\\Cart.cs",
               "RelativeDocumentMoniker": "TechXpress.Data\\Entities\\Cart.cs",
@@ -345,12 +387,11 @@
               "RelativeToolTip": "TechXpress.Data\\Entities\\Cart.cs",
               "ViewState": "AgIAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAA==",
               "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
-              "WhenOpened": "2025-05-13T09:54:19.26Z",
-              "EditorCaption": ""
+              "WhenOpened": "2025-05-13T09:54:19.26Z"
             },
             {
               "$type": "Document",
-              "DocumentIndex": 45,
+              "DocumentIndex": 46,
               "Title": "20250513152917_Seed-Data.cs",
               "DocumentMoniker": "D:\\TechXpress Project\\TechXpressV2\\TechXpressV2\\TechXpress.Data\\Migrations\\20250513152917_Seed-Data.cs",
               "RelativeDocumentMoniker": "TechXpress.Data\\Migrations\\20250513152917_Seed-Data.cs",
@@ -362,19 +403,7 @@
             },
             {
               "$type": "Document",
-              "DocumentIndex": 7,
-              "Title": "_Layout.cshtml",
-              "DocumentMoniker": "D:\\TechXpress Project\\TechXpressV2\\TechXpressV2\\TechXpress.Web\\Views\\Shared\\_Layout.cshtml",
-              "RelativeDocumentMoniker": "TechXpress.Web\\Views\\Shared\\_Layout.cshtml",
-              "ToolTip": "D:\\TechXpress Project\\TechXpressV2\\TechXpressV2\\TechXpress.Web\\Views\\Shared\\_Layout.cshtml",
-              "RelativeToolTip": "TechXpress.Web\\Views\\Shared\\_Layout.cshtml",
-              "ViewState": "AgIAAHQAAAAAAAAAAAAAAIEAAAA5AAAAAAAAAA==",
-              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000759|",
-              "WhenOpened": "2025-05-13T12:02:02.94Z"
-            },
-            {
-              "$type": "Document",
-              "DocumentIndex": 12,
+              "DocumentIndex": 14,
               "Title": "CategoryService.cs",
               "DocumentMoniker": "D:\\TechXpress Project\\TechXpressV2\\TechXpressV2\\TechXpress.Services\\CategoryService.cs",
               "RelativeDocumentMoniker": "TechXpress.Services\\CategoryService.cs",
@@ -386,7 +415,7 @@
             },
             {
               "$type": "Document",
-              "DocumentIndex": 11,
+              "DocumentIndex": 13,
               "Title": "CategoriesController.cs",
               "DocumentMoniker": "D:\\TechXpress Project\\TechXpressV2\\TechXpressV2\\TechXpress.Web\\Controllers\\CategoriesController.cs",
               "RelativeDocumentMoniker": "TechXpress.Web\\Controllers\\CategoriesController.cs",
@@ -398,7 +427,7 @@
             },
             {
               "$type": "Document",
-              "DocumentIndex": 16,
+              "DocumentIndex": 18,
               "Title": "AdminController.cs",
               "DocumentMoniker": "D:\\TechXpress Project\\TechXpressV2\\TechXpressV2\\TechXpress.Web\\Controllers\\AdminController.cs",
               "RelativeDocumentMoniker": "TechXpress.Web\\Controllers\\AdminController.cs",
@@ -410,7 +439,7 @@
             },
             {
               "$type": "Document",
-              "DocumentIndex": 15,
+              "DocumentIndex": 17,
               "Title": "Repository.cs",
               "DocumentMoniker": "D:\\TechXpress Project\\TechXpressV2\\TechXpressV2\\TechXpress.Data\\Repositories\\Repository.cs",
               "RelativeDocumentMoniker": "TechXpress.Data\\Repositories\\Repository.cs",
@@ -422,7 +451,7 @@
             },
             {
               "$type": "Document",
-              "DocumentIndex": 21,
+              "DocumentIndex": 23,
               "Title": "ReviewsApiController.cs",
               "DocumentMoniker": "D:\\TechXpress Project\\TechXpressV2\\TechXpressV2\\TechXpress.Web\\Controllers\\ReviewsApiController.cs",
               "RelativeDocumentMoniker": "TechXpress.Web\\Controllers\\ReviewsApiController.cs",
@@ -434,7 +463,7 @@
             },
             {
               "$type": "Document",
-              "DocumentIndex": 17,
+              "DocumentIndex": 19,
               "Title": "Products.cshtml",
               "DocumentMoniker": "D:\\TechXpress Project\\TechXpressV2\\TechXpressV2\\TechXpress.Web\\Views\\Admin\\Products.cshtml",
               "RelativeDocumentMoniker": "TechXpress.Web\\Views\\Admin\\Products.cshtml",
@@ -446,7 +475,7 @@
             },
             {
               "$type": "Document",
-              "DocumentIndex": 18,
+              "DocumentIndex": 20,
               "Title": "EditProduct.cshtml",
               "DocumentMoniker": "D:\\TechXpress Project\\TechXpressV2\\TechXpressV2\\TechXpress.Web\\Views\\Admin\\EditProduct.cshtml",
               "RelativeDocumentMoniker": "TechXpress.Web\\Views\\Admin\\EditProduct.cshtml",
@@ -458,7 +487,7 @@
             },
             {
               "$type": "Document",
-              "DocumentIndex": 20,
+              "DocumentIndex": 22,
               "Title": "ProductsApiController.cs",
               "DocumentMoniker": "D:\\TechXpress Project\\TechXpressV2\\TechXpressV2\\TechXpress.Web\\Controllers\\ProductsApiController.cs",
               "RelativeDocumentMoniker": "TechXpress.Web\\Controllers\\ProductsApiController.cs",
@@ -470,7 +499,7 @@
             },
             {
               "$type": "Document",
-              "DocumentIndex": 19,
+              "DocumentIndex": 21,
               "Title": "CreateProduct.cshtml",
               "DocumentMoniker": "D:\\TechXpress Project\\TechXpressV2\\TechXpressV2\\TechXpress.Web\\Views\\Admin\\CreateProduct.cshtml",
               "RelativeDocumentMoniker": "TechXpress.Web\\Views\\Admin\\CreateProduct.cshtml",
@@ -482,7 +511,7 @@
             },
             {
               "$type": "Document",
-              "DocumentIndex": 44,
+              "DocumentIndex": 45,
               "Title": "20250513095720_addedImageUrlinTableProduct.cs",
               "DocumentMoniker": "D:\\TechXpress Project\\TechXpressV2\\TechXpressV2\\TechXpress.Data\\Migrations\\20250513095720_addedImageUrlinTableProduct.cs",
               "RelativeDocumentMoniker": "TechXpress.Data\\Migrations\\20250513095720_addedImageUrlinTableProduct.cs",
@@ -494,7 +523,7 @@
             },
             {
               "$type": "Document",
-              "DocumentIndex": 24,
+              "DocumentIndex": 26,
               "Title": "HomeViewModel.cs",
               "DocumentMoniker": "D:\\TechXpress Project\\TechXpressV2\\TechXpressV2\\TechXpress.Web\\Models\\HomeViewModel.cs",
               "RelativeDocumentMoniker": "TechXpress.Web\\Models\\HomeViewModel.cs",
@@ -506,7 +535,7 @@
             },
             {
               "$type": "Document",
-              "DocumentIndex": 25,
+              "DocumentIndex": 27,
               "Title": "ErrorViewModel.cs",
               "DocumentMoniker": "D:\\TechXpress Project\\TechXpressV2\\TechXpressV2\\TechXpress.Web\\Models\\ErrorViewModel.cs",
               "RelativeDocumentMoniker": "TechXpress.Web\\Models\\ErrorViewModel.cs",
@@ -518,7 +547,7 @@
             },
             {
               "$type": "Document",
-              "DocumentIndex": 26,
+              "DocumentIndex": 28,
               "Title": "EditProfileViewModel.cs",
               "DocumentMoniker": "D:\\TechXpress Project\\TechXpressV2\\TechXpressV2\\TechXpress.Web\\Models\\EditProfileViewModel.cs",
               "RelativeDocumentMoniker": "TechXpress.Web\\Models\\EditProfileViewModel.cs",
@@ -530,7 +559,7 @@
             },
             {
               "$type": "Document",
-              "DocumentIndex": 22,
+              "DocumentIndex": 24,
               "Title": "Product.cs",
               "DocumentMoniker": "D:\\TechXpress Project\\TechXpressV2\\TechXpressV2\\TechXpress.Data\\Entities\\Product.cs",
               "RelativeDocumentMoniker": "TechXpress.Data\\Entities\\Product.cs",
@@ -542,7 +571,7 @@
             },
             {
               "$type": "Document",
-              "DocumentIndex": 23,
+              "DocumentIndex": 25,
               "Title": "RegisterViewModel.cs",
               "DocumentMoniker": "D:\\TechXpress Project\\TechXpressV2\\TechXpressV2\\TechXpress.Web\\Models\\RegisterViewModel.cs",
               "RelativeDocumentMoniker": "TechXpress.Web\\Models\\RegisterViewModel.cs",
@@ -554,7 +583,7 @@
             },
             {
               "$type": "Document",
-              "DocumentIndex": 27,
+              "DocumentIndex": 29,
               "Title": "OrderService.cs",
               "DocumentMoniker": "D:\\TechXpress Project\\TechXpressV2\\TechXpressV2\\TechXpress.Services\\OrderService.cs",
               "RelativeDocumentMoniker": "TechXpress.Services\\OrderService.cs",
@@ -566,7 +595,7 @@
             },
             {
               "$type": "Document",
-              "DocumentIndex": 29,
+              "DocumentIndex": 31,
               "Title": "UserService.cs",
               "DocumentMoniker": "D:\\TechXpress Project\\TechXpressV2\\TechXpressV2\\TechXpress.Services\\UserService.cs",
               "RelativeDocumentMoniker": "TechXpress.Services\\UserService.cs",
@@ -578,7 +607,7 @@
             },
             {
               "$type": "Document",
-              "DocumentIndex": 30,
+              "DocumentIndex": 32,
               "Title": "CartItem.cs",
               "DocumentMoniker": "D:\\TechXpress Project\\TechXpressV2\\TechXpressV2\\TechXpress.Data\\Entities\\CartItem.cs",
               "RelativeDocumentMoniker": "TechXpress.Data\\Entities\\CartItem.cs",
@@ -590,7 +619,7 @@
             },
             {
               "$type": "Document",
-              "DocumentIndex": 31,
+              "DocumentIndex": 33,
               "Title": "Category.cs",
               "DocumentMoniker": "D:\\TechXpress Project\\TechXpressV2\\TechXpressV2\\TechXpress.Data\\Entities\\Category.cs",
               "RelativeDocumentMoniker": "TechXpress.Data\\Entities\\Category.cs",
@@ -602,7 +631,7 @@
             },
             {
               "$type": "Document",
-              "DocumentIndex": 32,
+              "DocumentIndex": 34,
               "Title": "Order.cs",
               "DocumentMoniker": "D:\\TechXpress Project\\TechXpressV2\\TechXpressV2\\TechXpress.Data\\Entities\\Order.cs",
               "RelativeDocumentMoniker": "TechXpress.Data\\Entities\\Order.cs",
@@ -614,7 +643,7 @@
             },
             {
               "$type": "Document",
-              "DocumentIndex": 33,
+              "DocumentIndex": 35,
               "Title": "OrderDetail.cs",
               "DocumentMoniker": "D:\\TechXpress Project\\TechXpressV2\\TechXpressV2\\TechXpress.Data\\Entities\\OrderDetail.cs",
               "RelativeDocumentMoniker": "TechXpress.Data\\Entities\\OrderDetail.cs",
@@ -626,7 +655,7 @@
             },
             {
               "$type": "Document",
-              "DocumentIndex": 28,
+              "DocumentIndex": 30,
               "Title": "ReviewService.cs",
               "DocumentMoniker": "D:\\TechXpress Project\\TechXpressV2\\TechXpressV2\\TechXpress.Services\\ReviewService.cs",
               "RelativeDocumentMoniker": "TechXpress.Services\\ReviewService.cs",
@@ -638,7 +667,7 @@
             },
             {
               "$type": "Document",
-              "DocumentIndex": 36,
+              "DocumentIndex": 37,
               "Title": "dbo.Products.sql",
               "DocumentMoniker": "ViewDataWindow_MSSQL__/_localdb__MSSQLLocalDB/TechXpressDb/True/SqlTable/dbo.Products.sql",
               "ToolTip": "ViewDataWindow_MSSQL__/_localdb__MSSQLLocalDB/TechXpressDb/True/SqlTable/dbo.Products.sql",
@@ -647,7 +676,7 @@
             },
             {
               "$type": "Document",
-              "DocumentIndex": 38,
+              "DocumentIndex": 39,
               "Title": "ICartService.cs",
               "DocumentMoniker": "D:\\TechXpress Project\\TechXpressV2\\TechXpressV2\\TechXpress.Services\\ICartService.cs",
               "RelativeDocumentMoniker": "TechXpress.Services\\ICartService.cs",
@@ -659,19 +688,7 @@
             },
             {
               "$type": "Document",
-              "DocumentIndex": 34,
-              "Title": "Program.cs",
-              "DocumentMoniker": "D:\\TechXpress Project\\TechXpressV2\\TechXpressV2\\TechXpress.Web\\Program.cs",
-              "RelativeDocumentMoniker": "TechXpress.Web\\Program.cs",
-              "ToolTip": "D:\\TechXpress Project\\TechXpressV2\\TechXpressV2\\TechXpress.Web\\Program.cs",
-              "RelativeToolTip": "TechXpress.Web\\Program.cs",
-              "ViewState": "AgIAAAUAAAAAAAAAAAAAADMAAAADAAAAAAAAAA==",
-              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
-              "WhenOpened": "2025-05-11T10:31:28.912Z"
-            },
-            {
-              "$type": "Document",
-              "DocumentIndex": 37,
+              "DocumentIndex": 38,
               "Title": "CartService.cs",
               "DocumentMoniker": "D:\\TechXpress Project\\TechXpressV2\\TechXpressV2\\TechXpress.Services\\CartService.cs",
               "RelativeDocumentMoniker": "TechXpress.Services\\CartService.cs",
@@ -683,7 +700,7 @@
             },
             {
               "$type": "Document",
-              "DocumentIndex": 40,
+              "DocumentIndex": 41,
               "Title": "dbo.CartItems.sql",
               "DocumentMoniker": "ViewDataWindow_MSSQL__/_localdb__MSSQLLocalDB/TechXpressDb/True/SqlTable/dbo.CartItems.sql",
               "ToolTip": "ViewDataWindow_MSSQL__/_localdb__MSSQLLocalDB/TechXpressDb/True/SqlTable/dbo.CartItems.sql",
@@ -692,7 +709,7 @@
             },
             {
               "$type": "Document",
-              "DocumentIndex": 39,
+              "DocumentIndex": 40,
               "Title": "dbo.Carts.sql",
               "DocumentMoniker": "ViewDataWindow_MSSQL__/_localdb__MSSQLLocalDB/TechXpressDb/True/SqlTable/dbo.Carts.sql",
               "ToolTip": "ViewDataWindow_MSSQL__/_localdb__MSSQLLocalDB/TechXpressDb/True/SqlTable/dbo.Carts.sql",
@@ -701,7 +718,7 @@
             },
             {
               "$type": "Document",
-              "DocumentIndex": 35,
+              "DocumentIndex": 36,
               "Title": "OrderDetails.cshtml",
               "DocumentMoniker": "D:\\TechXpress Project\\TechXpressV2\\TechXpressV2\\TechXpress.Web\\Views\\Admin\\OrderDetails.cshtml",
               "RelativeDocumentMoniker": "TechXpress.Web\\Views\\Admin\\OrderDetails.cshtml",
@@ -713,7 +730,7 @@
             },
             {
               "$type": "Document",
-              "DocumentIndex": 43,
+              "DocumentIndex": 44,
               "Title": "20250511125311_initialmigration.cs",
               "DocumentMoniker": "D:\\TechXpress Project\\TechXpressV2\\TechXpressV2\\TechXpress.Data\\Migrations\\20250511125311_initialmigration.cs",
               "RelativeDocumentMoniker": "TechXpress.Data\\Migrations\\20250511125311_initialmigration.cs",
@@ -725,7 +742,7 @@
             },
             {
               "$type": "Document",
-              "DocumentIndex": 41,
+              "DocumentIndex": 42,
               "Title": "CartController.cs",
               "DocumentMoniker": "D:\\TechXpress Project\\TechXpressV2\\TechXpressV2\\TechXpress.Web\\Controllers\\CartController.cs",
               "RelativeDocumentMoniker": "TechXpress.Web\\Controllers\\CartController.cs",
@@ -737,7 +754,7 @@
             },
             {
               "$type": "Document",
-              "DocumentIndex": 42,
+              "DocumentIndex": 43,
               "Title": "20250511104016_New-Initial-migration.cs",
               "DocumentMoniker": "D:\\Complex\\TechXpress.Data\\Migrations\\20250511104016_New-Initial-migration.cs",
               "RelativeDocumentMoniker": "..\\..\\..\\Complex\\TechXpress.Data\\Migrations\\20250511104016_New-Initial-migration.cs",

@@ -636,9 +636,7 @@ D:\TechXpress Project\TechXpressV2\TechXpressV2\TechXpress.Web\obj\Debug\net9.0\
 D:\TechXpress Project\TechXpressV2\TechXpressV2\TechXpress.Web\obj\Debug\net9.0\scopedcss\Views\Shared\_Layout.cshtml.rz.scp.css
 D:\TechXpress Project\TechXpressV2\TechXpressV2\TechXpress.Web\obj\Debug\net9.0\scopedcss\bundle\TechXpress.Web.styles.css
 D:\TechXpress Project\TechXpressV2\TechXpressV2\TechXpress.Web\obj\Debug\net9.0\scopedcss\projectbundle\TechXpress.Web.bundle.scp.css
-D:\TechXpress Project\TechXpressV2\TechXpressV2\TechXpress.Web\obj\Debug\net9.0\compressed\rpaj70lf7g-b9sayid5wm.gz
 D:\TechXpress Project\TechXpressV2\TechXpressV2\TechXpress.Web\obj\Debug\net9.0\compressed\ht0kpc6id1-61n19gt1b8.gz
-D:\TechXpress Project\TechXpressV2\TechXpressV2\TechXpress.Web\obj\Debug\net9.0\compressed\nrv2svh1g9-xtxxf3hu2r.gz
 D:\TechXpress Project\TechXpressV2\TechXpressV2\TechXpress.Web\obj\Debug\net9.0\compressed\rvs24fp569-t1cqhe9u97.gz
 D:\TechXpress Project\TechXpressV2\TechXpressV2\TechXpress.Web\obj\Debug\net9.0\compressed\v7pli9ftgt-c2jlpeoesf.gz
 D:\TechXpress Project\TechXpressV2\TechXpressV2\TechXpress.Web\obj\Debug\net9.0\compressed\y2aheon56a-sejl45xvog.gz
@@ -709,10 +707,12 @@ D:\TechXpress Project\TechXpressV2\TechXpressV2\TechXpress.Web\obj\Debug\net9.0\
 D:\TechXpress Project\TechXpressV2\TechXpressV2\TechXpress.Web\obj\Debug\net9.0\staticwebassets\msbuild.buildMultiTargeting.TechXpress.Web.props
 D:\TechXpress Project\TechXpressV2\TechXpressV2\TechXpress.Web\obj\Debug\net9.0\staticwebassets\msbuild.buildTransitive.TechXpress.Web.props
 D:\TechXpress Project\TechXpressV2\TechXpressV2\TechXpress.Web\obj\Debug\net9.0\staticwebassets.pack.json
-D:\TechXpress Project\TechXpressV2\TechXpressV2\TechXpress.Web\obj\Debug\net9.0\staticwebassets.upToDateCheck.txt
 D:\TechXpress Project\TechXpressV2\TechXpressV2\TechXpress.Web\obj\Debug\net9.0\TechXpre.775B1EC3.Up2Date
 D:\TechXpress Project\TechXpressV2\TechXpressV2\TechXpress.Web\obj\Debug\net9.0\TechXpress.Web.dll
 D:\TechXpress Project\TechXpressV2\TechXpressV2\TechXpress.Web\obj\Debug\net9.0\refint\TechXpress.Web.dll
 D:\TechXpress Project\TechXpressV2\TechXpressV2\TechXpress.Web\obj\Debug\net9.0\TechXpress.Web.pdb
 D:\TechXpress Project\TechXpressV2\TechXpressV2\TechXpress.Web\obj\Debug\net9.0\TechXpress.Web.genruntimeconfig.cache
 D:\TechXpress Project\TechXpressV2\TechXpressV2\TechXpress.Web\obj\Debug\net9.0\ref\TechXpress.Web.dll
+D:\TechXpress Project\TechXpressV2\TechXpressV2\TechXpress.Web\obj\Debug\net9.0\compressed\sckn4ylsr2-jpfhbs9r8d.gz
+D:\TechXpress Project\TechXpressV2\TechXpressV2\TechXpress.Web\obj\Debug\net9.0\compressed\nrv2svh1g9-ynwftqvgjt.gz
+D:\TechXpress Project\TechXpressV2\TechXpressV2\TechXpress.Web\obj\Debug\net9.0\compressed\rpaj70lf7g-jdm0e5249a.gz
